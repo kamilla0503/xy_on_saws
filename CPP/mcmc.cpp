@@ -123,8 +123,8 @@ Protein::Protein(long int n) {
     ordered_coords[0]=0;
     ordered_coords[n-1]=n-1;
 
-    sequence_on_lattice[0] = 1;
-    sequence_on_lattice[end_conformation] = 1; //начальная последовательность
+    sequence_on_lattice[0] = PI;
+    sequence_on_lattice[end_conformation] = PI; //начальная последовательность
 
     next_monomers[0] = 1;
     previous_monomers[n-1] = n-2;
@@ -806,11 +806,11 @@ void Protein::write_file(long int i) {
     out_result.open(filename);
     //out_result << mc_steps<<" " << number_of_monomers << " " << J << " " << h  <<   " ";
     out_result << "N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq ";
-    out_result << "mean_e err_mean_e mean_e_sq err_mean_e_sq mean_e_fourth err_mean_e_fourth  ";
+    out_result << "mean_e err_mean_e mean_e_sq err_mean_e_sq mean_e_fourth err_mean_e_fourth ";
 
     out_result << "mean_sin err_mean_sin mean_cos err_mean_cos mean_m_sq err_mean_m_sq mean_m_fourth err_mean_m_fourth steps " ;
     out_result << "bulk2 err_bulk2 bulk3 err_bulk3 bulk4 err_bulk4 ";
-    out_result << "lambda1 err_lambda1 lambda2 err_lambda2 asperical err_aspherical"<< std::endl;
+    out_result << "lambda1 err_lambda1 lambda2 err_lambda2 asperical err_aspherical "<< std::endl;
 
     out_result << number_of_monomers << " " << J << " " << h <<  " ";
     out_result << dists.mean() << " " << dists.errorbar()<< " " << gyration.mean() << " " << gyration.errorbar() << " ";
