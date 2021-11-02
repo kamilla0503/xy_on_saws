@@ -149,7 +149,7 @@ Protein::Protein(long int n) {
     current_mag_4=1.0*current_mag_2*current_mag_2;
 
     //bulk2_now= number_of_monomers-2;
-
+    //count_contacts();
 }
 
 void Protein::count_contacts()
@@ -163,7 +163,7 @@ void Protein::count_contacts()
             step = lattice.map_of_contacts_int[lattice.ndim2()*current_position+j];
             if ( sequence_on_lattice[step]!=-5  )
             {
-                hh=hh+sequence_on_lattice[current_position]* sequence_on_lattice[step];
+                hh=hh+cos(sequence_on_lattice[current_position]-sequence_on_lattice[step]);
             }
         }
         //mag = mag + sequence_on_lattice[current_position];
@@ -350,6 +350,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
     long int all_steps=steps_to_equilibrium+mc_steps;
 
     for (long int i=0; i<all_steps+2; i++) {
+    //std::cout << E << std::endl;
         //std::cout << "STEP : " << i << std::endl;
         typeOfUpdate = distribution(generator);
         if (typeOfUpdate < p_for_local_update) {
@@ -394,7 +395,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
                         }
                     }
 
-                    new_E = E + hh;
+                    new_E = E - hh;
                     //new_H = current_H_counts + sequence_on_lattice[new_point] - sequence_on_lattice[start_conformation];
                     //new_H = current_H_counts + sequence_on_lattice[new_point] - sequence_on_lattice[temp];
 
@@ -482,12 +483,15 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
                         }
                     }
 
-                    new_E = E + hh;
+                    new_E = E - hh;
                     //new_H = current_H_counts + sequence_on_lattice[new_point] - sequence_on_lattice[temp];
-
+		 
                     //p1 = exp(-(new_E - E) * J - (new_H - current_H_counts) * h);
 
                     p1 = exp( -(-(new_E - E) * J ));
+                    
+                    	//std::cout << "E " << E << "new E " << new_E << " " << p1 << std::endl;
+                    
                     p_metropolis = std::min(1.0, p1);
                     q_rd = distribution(generator);
 
@@ -587,7 +591,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
         }
 
 
-        if (  i > steps_to_equilibrium &&  i%1000000==0    )
+        if (  i > steps_to_equilibrium &&  i%100000==0    )
         {
             save_calcs();
             calc_bulk();
@@ -600,7 +604,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
 
 
 
-        if ( i> steps_to_equilibrium && i%100000000==0 )
+        if ( i> steps_to_equilibrium && i%10000000==0 )
         //if ( i> steps_to_equilibrium && i%1000000==0 )
         {
 

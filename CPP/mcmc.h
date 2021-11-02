@@ -45,7 +45,7 @@ public:
     bool IsEndInStuck();
 
     void MC(  double J=0, double h=0, int nSimulation = 0, long int steps_to_equilibrium = 400000000, long int mc_steps = 5000000000000, bool radius = false);
-    //void MC(  double J=0, double h=0, int nSimulation = 0, long int steps_to_equilibrium = 100000, long int mc_steps = 10000000, bool radius = false);
+    //void MC(  double J=0, double h=0, int nSimulation = 0, long int steps_to_equilibrium = 10, long int mc_steps = 10000000, bool radius = false);
 
     void save_calcs();
 
