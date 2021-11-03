@@ -130,7 +130,7 @@ Protein::Protein(long int n) {
     previous_monomers[n-1] = n-2;
 
     //current_H_counts = n;
-    E =  -(n-1);
+    E =  (n-1);
 
 
     //сначала все направления - движение вправо
@@ -170,7 +170,7 @@ void Protein::count_contacts()
         current_position=next_monomers[current_position];
     }
 
-    E = -(hh/2);
+    E = (hh/2);
     //current_H_counts = mag;
 }
 
@@ -395,7 +395,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
                         }
                     }
 
-                    new_E = E - hh;
+                    new_E = E + hh;
                     //new_H = current_H_counts + sequence_on_lattice[new_point] - sequence_on_lattice[start_conformation];
                     //new_H = current_H_counts + sequence_on_lattice[new_point] - sequence_on_lattice[temp];
 
@@ -483,7 +483,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
                         }
                     }
 
-                    new_E = E - hh;
+                    new_E = E + hh;
                     //new_H = current_H_counts + sequence_on_lattice[new_point] - sequence_on_lattice[temp];
 		 
                     //p1 = exp(-(new_E - E) * J - (new_H - current_H_counts) * h);
@@ -591,7 +591,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
         }
 
 
-        if (  i > steps_to_equilibrium &&  i%100000==0    )
+        if (  i > steps_to_equilibrium &&  i%1000000==0    )
         {
             save_calcs();
             calc_bulk();
@@ -604,7 +604,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
 
 
 
-        if ( i> steps_to_equilibrium && i%10000000==0 )
+        if ( i> steps_to_equilibrium && i%100000000==0 )
         //if ( i> steps_to_equilibrium && i%1000000==0 )
         {
 
