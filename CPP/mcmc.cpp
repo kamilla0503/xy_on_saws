@@ -130,7 +130,7 @@ Protein::Protein(long int n) {
     previous_monomers[n-1] = n-2;
 
     //current_H_counts = n;
-    E =  (n-1);
+    E =  -(n-1);
 
 
     //сначала все направления - движение вправо
@@ -154,7 +154,7 @@ Protein::Protein(long int n) {
 
 void Protein::count_contacts()
 {
-    long int hh = 0;
+    double hh = 0;
     long int current_position = start_conformation;
     coord_t  step;
     long int mag = 0;
@@ -170,7 +170,7 @@ void Protein::count_contacts()
         current_position=next_monomers[current_position];
     }
 
-    E = (hh/2);
+    E = -(hh/2.0);
     //current_H_counts = mag;
 }
 
@@ -334,16 +334,16 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
     long double oldspin;
 
 
-    //std::uniform_int_distribution<long int> distribution_spin(0, number_of_monomers-1);
-    std::uniform_int_distribution<long int> distribution_spin(0, lattice.lattice_side* lattice.lattice_side - 1 );
+    std::uniform_int_distribution<long int> distribution_spin(0, number_of_monomers-1);
+    //std::uniform_int_distribution<long int> distribution_spin(0, lattice.lattice_side* lattice.lattice_side - 1 );
     //std::mt19937 generator_spin(123);
     std::random_device generator_spin;
 
     //вероятность добавить спин в кластер в кластерном апдейте
     P_add = 1 - exp(-2*J); //пока так для h=0
 
-    double p_for_local_update = 0.6;
-    double p_for_reconnect = 1.0; //p_for_local_update - p_for_reconnect = вероятность реконнекта
+    double p_for_local_update = 0.5;
+    double p_for_reconnect = 0.8; //p_for_reconnect - p_for_local_update  = вероятность реконнекта
 
     //spins_in_cluster.resize(number_of_monomers, false);
 
@@ -367,26 +367,25 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
 
                     //делаем апдейт
 
-                    //добавляем в конец
-                    next_monomers[end_conformation] = new_point;
-                    sequence_on_lattice[new_point] =  distribution_spin(generatorstheta); //выбор спина
-                    previous_monomers[new_point] = end_conformation;
-                    end_conformation = new_point;
-
                     //удаляем начало
                     temp = start_conformation;
                     start_conformation = next_monomers[start_conformation];
                     next_monomers[temp] = -1;
                     previous_monomers[start_conformation] = -1;
-
+                    sequence_on_lattice[temp] = -5;
                     //смотрим потери
                     for (int j = 0; j < lattice.ndim2(); j++) {
                         step = lattice.map_of_contacts_int[lattice.ndim2() * temp + j];
                         if (sequence_on_lattice[step] != -5) {
-                            hh = hh - cos(sequence_on_lattice[temp] - sequence_on_lattice[step]);
+                            hh = hh - cos(oldspin - sequence_on_lattice[step]);
                         }
                     }
 
+                    //добавляем в конец
+                    next_monomers[end_conformation] = new_point;
+                    sequence_on_lattice[new_point] =  distribution_theta(generatorstheta); //выбор спина
+                    previous_monomers[new_point] = end_conformation;
+                    end_conformation = new_point;
                     //смотрим выигрыш
                     for (int j = 0; j < lattice.ndim2(); j++) {
                         step = lattice.map_of_contacts_int[lattice.ndim2() * end_conformation + j];
@@ -400,7 +399,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
                     //new_H = current_H_counts + sequence_on_lattice[new_point] - sequence_on_lattice[temp];
 
                     //p1 = exp( -(-(new_E - E) * J - (new_H - current_H_counts) * h));
-                    p1 = exp( -(-(new_E - E) * J ));
+                    p1 = exp( -( -(new_E - E) * J ));
                     p_metropolis = std::min(1.0, p1);
                     q_rd = distribution(generator);
                     if (q_rd < p_metropolis) { //принимаем изменения
@@ -413,12 +412,6 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
                         //корректируем информацию о направлениях
                         directions[temp] = -1;
                         directions[previous_monomers[end_conformation]] = step_on_lattice;
-
-
-                        //sum_sin_1 = sum_sin_1 + sin() - ;
-                        //sum_sin_2 = 0.0, sum_cos_2 = 0.0,sum_sin_1 = 0.0, sum_cos_1 = 0.0;
-
-
 
                     }
                     else {//отменяем изменения
@@ -452,11 +445,6 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
                 if (sequence_on_lattice[new_point] == -5) { //проверка, что в узле нет мономеров
 
                     //делаем апдейт
-                    //добавляем в начало
-                    previous_monomers[start_conformation] = new_point;
-                    sequence_on_lattice[new_point] =  distribution_spin(generatorstheta); //выбор спина
-                    next_monomers[new_point] = start_conformation;
-                    start_conformation = new_point;
 
                     //удаляем конец
                     temp = end_conformation;
@@ -466,15 +454,20 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
                     }
                     previous_monomers[temp] = -1;
                     next_monomers[end_conformation] = -1;
-
+                    sequence_on_lattice[temp] = -5;
                     //смотрим потери
                     for (int j = 0; j < lattice.ndim2(); j++) {
                         step = lattice.map_of_contacts_int[lattice.ndim2() * temp + j];
                         if (sequence_on_lattice[step] != -5) {
-                            hh = hh - cos(sequence_on_lattice[temp] -sequence_on_lattice[step]);
+                            hh = hh - cos(oldspin -sequence_on_lattice[step]);
                         }
                     }
 
+                    //добавляем в начало
+                    previous_monomers[start_conformation] = new_point;
+                    sequence_on_lattice[new_point] = distribution_theta(generatorstheta); //выбор спина
+                    next_monomers[new_point] = start_conformation;
+                    start_conformation = new_point;
                     //смотрим выигрыш
                     for (int j = 0; j < lattice.ndim2(); j++) {
                         step = lattice.map_of_contacts_int[lattice.ndim2() * start_conformation + j];
@@ -536,47 +529,8 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
 
             }
         }
-        else {
+        else if (typeOfUpdate<p_for_reconnect) {
 
-            long int coord = distribution_spin(generator_spin);
-
-            if ( false and sequence_on_lattice[coord]!=0 )
-            { //вероятность такого события 1/n, делаем кластерный апдейт
-                double sign = sequence_on_lattice[coord];
-
-                std::valarray<bool> used_coords;
-                used_coords.resize(lattice.lattice_side*lattice.lattice_side, false  );
-
-                std::queue<long int> Cluster;
-
-                Cluster.push(coord);
-                used_coords[coord] = true;
-
-                while (!Cluster.empty()) {
-                    temp = Cluster.front();
-                    Cluster.pop();
-
-                    for (int j = 0; j < lattice.ndim2(); j++)
-                    {
-                        step = lattice.map_of_contacts_int[lattice.ndim2() * temp + j];
-                        double p = distribution(generator);
-                        //???
-                        if (sequence_on_lattice[step] == sign && p < P_add &&
-                            !used_coords[step]) {
-                            Cluster.push(step);
-                            used_coords[step]= true;
-                            sequence_on_lattice[step] *= -1;
-                        }
-                    }
-                }
-                sequence_on_lattice[coord] *= -1;
-
-                count_contacts();
-
-                //std::cout << "cluster type done " << std::endl;
-            }
-            else
-                { //обычно будем здесь, здесь попытка сделать реконнект
                     step_on_lattice = distribution1(generators1);
                     new_point = lattice.map_of_contacts_int[lattice.ndim2() * end_conformation + step_on_lattice];
 
@@ -585,13 +539,101 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
                         new_point != previous_monomers[end_conformation]) {
                         Reconnect(step_on_lattice);
                     }
+
+        }
+        else
+        {
+            // делаем кластерный апдейт
+            long int choose_spin = distribution_spin(generator_spin);
+
+            long int coord = start_conformation; //next_monomers[start_conformation];
+            for (long int spin = 1; spin < choose_spin; spin++)
+            {
+                coord = next_monomers[coord];
             }
 
 
+            double flipdirection = distribution_theta(generatorstheta);
+
+            double x1 = cos(sequence_on_lattice[coord])*cos(flipdirection)+sin(sequence_on_lattice[coord])*sin(flipdirection);
+            double s = sin(sequence_on_lattice[coord])-2*x1*sin(flipdirection);
+            double c = cos(sequence_on_lattice[coord])-2*x1*cos(flipdirection);
+            sequence_on_lattice[coord] = (s > 0) ? acos(c) : -acos(c);
+            int sign = (x1 < 0) ? -1 : (x1 > 0);
+            //std:: cout << sequence_on_lattice[coord] << std::endl;
+            //double x = x1;//cos(sequence_on_lattice[coord])*cos(flipdirection)+sin(sequence_on_lattice[coord])*sin(flipdirection);
+            double x = x1;//cos(sequence_on_lattice[coord])*cos(flipdirection)+sin(sequence_on_lattice[coord])*sin(flipdirection);
+            //int sign = (x1 < 0) ? -1 : (x1 > 0);
+
+
+                    // sequence_on_lattice[coord];
+
+            std::valarray<bool> used_coords;
+            used_coords.resize(lattice.lattice_side*lattice.lattice_side, false  );
+
+            std::queue<long int> Cluster;
+
+            Cluster.push(coord);
+            used_coords[coord] = true;
+            double tempscalar = 0;
+            int tempsign = -1;
+            while (!Cluster.empty()) {
+                temp = Cluster.front();
+                Cluster.pop();
+
+                for (int j = 0; j < lattice.ndim2(); j++)
+                {
+                    step = lattice.map_of_contacts_int[lattice.ndim2() * temp + j];
+                    tempscalar = cos(sequence_on_lattice[step])*cos(flipdirection)+sin(sequence_on_lattice[step])*sin(flipdirection);
+                    tempsign = (tempscalar < 0) ? -1 : (tempscalar > 0);
+
+                    P_add =  1 - exp(std::min(0.0, -2*J*tempscalar*x));
+
+                    double p = distribution(generator);
+                    //???
+                    if ( sequence_on_lattice[step]!=-5. &&
+                            //tempsign == sign &&
+                            p < P_add &&
+                        !used_coords[step]) {
+                        Cluster.push(step);
+                        used_coords[step]= true;
+
+                        double s = sin(sequence_on_lattice[step])-2*tempscalar*sin(flipdirection);
+                        double c = cos(sequence_on_lattice[step])-2*tempscalar*cos(flipdirection);
+
+                        /*if ( abs(s)>1 || abs(c)>1)
+                            std::cout << s << " " << c << " " << sequence_on_lattice[step]
+                           << " " << tempscalar << " " << std::endl;*/
+                        //std::cout << s*s+c*c << std::endl;
+                        sequence_on_lattice[step] = (s > 0) ? acos(c) : -acos(c);
+                    }
+                }
+            }
+
+            //double s = sin(sequence_on_lattice[coord])-2*x*sin(flipdirection);
+            //double c = cos(sequence_on_lattice[coord])-2*x*cos(flipdirection);
+            //sequence_on_lattice[coord] = (s > 0) ? acos(c) : -acos(c);
+
+
+            //std::cout << s << " " << c << " " << sequence_on_lattice[coord] << std::endl;
+            count_contacts();
+
+           /*long int current_position = start_conformation;
+            //coord_t  step;
+
+            for (int i =0; i<number_of_monomers; i++){
+                std::cout<< sequence_on_lattice[current_position] << " ";
+                //mag = mag + sequence_on_lattice[current_position];
+                current_position=next_monomers[current_position];
+            }
+            std::cout << std::endl;
+            std:: cout << E << std::endl;
+            std::cout << "cluster type done " << std::endl;*/
         }
 
+        //count_contacts();
 
-        if (  i > steps_to_equilibrium &&  i%1==0    )
+        if (  i > steps_to_equilibrium &&  i%1000==0    )
         {
             save_calcs();
             calc_bulk();
@@ -604,7 +646,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
 
 
 
-        if ( i> steps_to_equilibrium && i%1==0 )
+        if ( i> steps_to_equilibrium && i%100000==0 )
         //if ( i> steps_to_equilibrium && i%1000000==0 )
         {
 

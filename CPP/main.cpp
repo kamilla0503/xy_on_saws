@@ -7,8 +7,8 @@ int main(int argc, char *argv[]) {
     //std::cout << "Hello, World!" << std::endl;
     int N = std::stoi(argv[1]); //std::atoi(argv[1]);
     //std::cout << N << " " << std::endl;
-    double J = 0.1*(double)std::stoi(argv[2]); //std::atof(argv[2]);
-    std::cout << J << " " << std::endl;
+    double J = 0.001*(double)std::stoi(argv[2]); //std::atof(argv[2]);
+    std::cout << J << " " << N << std::endl;
 
     //int nSim = std::stoi(argv[3]);
     //double  h = 0.1*(double)std::stoi(argv[3]);
