@@ -343,7 +343,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
     P_add = 1 - exp(-2*J); //пока так для h=0
 
     double p_for_local_update = 0.5;
-    double p_for_reconnect = 0.8; //p_for_reconnect - p_for_local_update  = вероятность реконнекта
+    double p_for_reconnect = 0.7; //p_for_reconnect - p_for_local_update  = вероятность реконнекта
 
     //spins_in_cluster.resize(number_of_monomers, false);
 
@@ -481,7 +481,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
 		 
                     //p1 = exp(-(new_E - E) * J - (new_H - current_H_counts) * h);
 
-                    p1 = exp( -(-(new_E - E) * J ));
+                    p1 = exp( -( -(new_E - E) * J ));
                     
                     	//std::cout << "E " << E << "new E " << new_E << " " << p1 << std::endl;
                     
@@ -587,12 +587,12 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
                     tempscalar = cos(sequence_on_lattice[step])*cos(flipdirection)+sin(sequence_on_lattice[step])*sin(flipdirection);
                     tempsign = (tempscalar < 0) ? -1 : (tempscalar > 0);
 
-                    P_add =  1 - exp(std::min(0.0, -2*J*tempscalar*x));
+                    P_add =  1 - exp(-2*J*tempscalar*x);//exp(std::min(0.0, -2*J*tempscalar*x));
 
                     double p = distribution(generator);
                     //???
                     if ( sequence_on_lattice[step]!=-5. &&
-                            //tempsign == sign &&
+                            tempsign == sign &&
                             p < P_add &&
                         !used_coords[step]) {
                         Cluster.push(step);
@@ -633,7 +633,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
 
         //count_contacts();
 
-        if (  i > steps_to_equilibrium &&  i%1000==0    )
+        if (  i > steps_to_equilibrium &&  i%10==0    )
         {
             save_calcs();
             calc_bulk();
@@ -646,7 +646,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
 
 
 
-        if ( i> steps_to_equilibrium && i%100000==0 )
+        if ( i> steps_to_equilibrium && i%100==0 )
         //if ( i> steps_to_equilibrium && i%1000000==0 )
         {
 
