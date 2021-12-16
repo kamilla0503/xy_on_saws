@@ -633,7 +633,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
 
         //count_contacts();
 
-        if (  i > steps_to_equilibrium &&  i%10==0    )
+        if (  i > steps_to_equilibrium &&  i%10000==0    )
         {
             save_calcs();
             calc_bulk();
@@ -646,7 +646,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
 
 
 
-        if ( i> steps_to_equilibrium && i%100==0 )
+        if ( i> steps_to_equilibrium && i%1000000==0 )
         //if ( i> steps_to_equilibrium && i%1000000==0 )
         {
 
