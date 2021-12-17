@@ -558,6 +558,13 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
             double x1 = cos(sequence_on_lattice[coord])*cos(flipdirection)+sin(sequence_on_lattice[coord])*sin(flipdirection);
             double s = sin(sequence_on_lattice[coord])-2*x1*sin(flipdirection);
             double c = cos(sequence_on_lattice[coord])-2*x1*cos(flipdirection);
+
+                        if (s<-1.) s=-1;
+                        if (s>1.) s=1;
+                        if (c<-1.) c=-1;
+                        if (c>1.) c=1;
+
+
             sequence_on_lattice[coord] = (s > 0) ? acos(c) : -acos(c);
             int sign = (x1 < 0) ? -1 : (x1 > 0);
             //std:: cout << sequence_on_lattice[coord] << std::endl;
@@ -600,10 +607,15 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
 
                         double s = sin(sequence_on_lattice[step])-2*tempscalar*sin(flipdirection);
                         double c = cos(sequence_on_lattice[step])-2*tempscalar*cos(flipdirection);
+			if (s<-1.) s=-1;
+			if (s>1.) s=1;
+                        if (c<-1.) c=-1;
+                        if (c>1.) c=1;
 
-                        /*if ( abs(s)>1 || abs(c)>1)
+/*
+                        if ( abs(s)>1 || abs(c)>1)
                             std::cout << s << " " << c << " " << sequence_on_lattice[step]
-                           << " " << tempscalar << " " << std::endl;*/
+                           << " " << tempscalar << " " << std::endl; */
                         //std::cout << s*s+c*c << std::endl;
                         sequence_on_lattice[step] = (s > 0) ? acos(c) : -acos(c);
                     }
