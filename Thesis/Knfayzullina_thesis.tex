@@ -1,0 +1,85 @@
+ %%% Formelle Vorgaben %%%
+
+\input{Preamble.tex}
+
+\begin{document}
+
+%%% Cover %%%
+%\input{Cover.tex}
+
+\setcounter{page}{0}
+\newpage
+
+%%%
+\pagenumbering{Roman}
+
+%%% Approval %%%
+
+%\input{Approval}
+\newpage
+
+%%% Abstract %%%
+
+%\input{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\newpage
+
+%%% Acknowledgements $$$
+
+%\input{Acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\newpage
+
+%%% Indexes %%%
+
+%\tableofcontents
+
+
+
+%\newpage
+%\listoftables
+%\newpage
+%\listoffigures$
+%\newpage
+%\input{Acronyms}
+%\addcontentsline{toc}{chapter}{List of Acronyms}
+\newpage
+\pagenumbering{arabic}
+
+%%% Main Part %%%
+
+%\include{Intro}
+
+%\include{LitRev}
+
+\include{Models}
+
+%\include{Method}
+
+\include{Results}
+
+%\include{Discussion}
+
+%\include{Conclusion}
+
+
+\newpage
+
+%%% Literature %%%
+
+%\bibliographystyle{amsplain}
+
+%\bibliography{bibliography}
+%\printbibliography
+%\include{bibliography}
+\printbibliography[heading=bibintoc]
+%\printbibliography[heading=bibintoc] %add bibliography to table of contents without numbering it
+
+\newpage
+
+%%% Appendix %%%
+
+\appendix
+%\include{Appendix}
+
+\end{document}
