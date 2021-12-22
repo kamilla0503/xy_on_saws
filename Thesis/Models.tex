@@ -1,0 +1,139 @@
+\chapter{Models} 
+
+\section{XY model on SAWs} \label{sec:xymodel}
+
+A molecular conformation of the length $N$ is represented by a self-avoiding walk (SAW) on a regular lattice with $N-1$ edges and $N$ nodes.  Each $i$th node represents a spin-like variable $s_i$ which is associated with angle $\theta_i \in  [-\pi;\pi]$. The Hamiltonian for sequence of spins $s$ and conformation $u$ is defined as the sum over all  non-repeating neighbor  pairs $\langle i, j \rangle$ in conformation:
+\begin{equation}
+\label{hamiltonian}
+H(u,s) = -J \sum_{ \langle i, j \rangle } cos(\theta_i - \theta_j) - h \sum_i cos(\theta_i)
+\end{equation}
+
+In case of the free boundary conditions, the partition function for the chain of the length $N$ has the following form: 
+\begin{equation}
+\label{partitionfunction_free}
+Z(J) = \int_{-\pi}^{\pi} d \theta_1 d \theta_2 \dots d\theta_N
+ e ^{J(cos\theta_1-\theta_2)} e ^{J(cos\theta_2-\theta_3)} 
+ e ^{J(cos\theta_{N-1}-\theta_N)} %= 2 \pi
+ %\prod_{j=2}^{N}  \int_{-\pi}^{\pi} d \theta_j^{'} e ^{J(cos\theta_j^{'})} 
+\end{equation}
+
+The mean magnetization is defined as a vector:
+\begin{equation}
+\label{meanmagnetization}
+\langle m \rangle = \frac{1}{N} \langle ( \sum_{i=1}^{N} cos \theta_i, \sum_{i=1}^{N} sin \theta_i  ) \rangle
+\end{equation}
+
+The second moment of magnetization is a square of the norm:
+\begin{equation}
+\label{secondmomentmagnetization}
+\langle m^2 \rangle = \frac{1}{N^2} \langle ( \sum_{i=1}^{N} cos \theta_i )^2 +  (\sum_{i=1}^{N} sin \theta_i  )^2 \rangle
+\end{equation}
+
+From measurements of the average magnetization per spin $\langle m \rangle (J)$, we can obtain the value of the magnetic cumulant  (Binder parameters) of fourth order \cite{Binder2010}, which is helpful to study magnetic phase transition:
+\begin{equation}
+\label{binderqum}
+U_4 (J) = 1 - \frac{ \langle m^4 \rangle}{3 \langle m^2 \rangle^2  }
+\end{equation}
+In case $J=0$ (high-temperature regime), all states have equal probabilities:
+\begin{equation}
+\label{paritionfunction_free_zero}
+Z(0) =  %\prod_{j=1}^{N}  
+\int_{-\pi}^{\pi} (\frac{1}{2 \pi})^N   d \theta_1 d \theta_2 \dots d\theta_N 
+ %d \theta_j^{'} 
+\end{equation}
+To calculate the exact value of $\langle m^2 \rangle (J=0)$  we use following results: 
+\begin{equation*} 
+ \int_{-\pi}^{\pi}  \frac{1}{2 \pi} sin^2 \theta d \theta =\int_{-\pi}^{\pi}  \frac{1}{2 \pi} cos^2 \theta d \theta = \frac{1}{2} 
+\end{equation*}
+ \begin{equation*} \int_{-\pi}^{\pi}  \frac{1}{2 \pi} sin \theta d \theta  =\int_{-\pi}^{\pi}  \frac{1}{2 \pi} cos  \theta d \theta = 0 \end{equation*}
+   After some calculation, only integration results for $N$ times $sin^2 \theta_i$ and $N$ times $cos^2 \theta_i$ survive:
+\begin{equation} 
+\label{m2j0}
+  \langle m^2 \rangle (J=0) = \frac{1}{N^2}   \int_{-\pi}^{\pi}  (\frac{1}{2 \pi})^N \left(  
+   ( \sum_{i=1}^{N} cos \theta_i )^2 +  (\sum_{i=1}^{N} sin \theta_i  )^2 \right)  d \theta_1 d \theta_2 \dots d\theta_N =
+  \frac{1}{N^2}  (\frac{1}{2}N +\frac{1}{2}N)   = \frac{1}{N}
+\end{equation}
+Next, to calculate $\langle m^4 \rangle (J=0)$ we use following facts: 
+\begin{equation*}
+\langle m^4 \rangle (J=0) = \frac{1}{N^4}   \int_{-\pi}^{\pi}  (\frac{1}{2 \pi})^N \left(  
+( \sum_{i=1}^{N} cos \theta_i )^2 +  (\sum_{i=1}^{N} sin \theta_i  )^2 \right)^2 d \theta_1 d \theta_2 \dots d\theta_N  
+\end{equation*} \\ 
+\begin{equation*}
+ \left(  
+( \sum_{i=1}^{N} cos \theta_i )^2 +  (\sum_{i=1}^{N} sin \theta_i  )^2 \right)^2 =  (\sum_{i=1}^{N} cos \theta_i )^4 + (\sum_{i=1}^{N} sin \theta_i )^4 + 2 ( \sum_{i=1}^{N} cos \theta_i )^2( \sum_{i=1}^{N} sin \theta_i )^2 
+\end{equation*} \\
+
+$ \int_{-\pi}^{\pi}  \frac{1}{2 \pi} sin^4 \theta d \theta =\int_{-\pi}^{\pi}  \frac{1}{2 \pi} cos^4 \theta d \theta = \frac{3}{8}$ (We  have $N$ times $sin^4\theta_i$-term and $N$ times $cos^4\theta_i$-term  what results in $2\times \frac{3}{8} \times N$). \\
+
+$ \int_{-\pi}^{\pi}  \frac{1}{2 \pi}\int_{-\pi}^{\pi} \frac{1}{2 \pi} sin^2 \theta_i sin^2 \theta_j d\theta_i  d\theta_j = \int_{-\pi}^{\pi}  \frac{1}{2 \pi}\int_{-\pi}^{\pi} \frac{1}{2 \pi} cos^2 \theta_i cos^2 \theta_j d\theta_i  d\theta_j = \frac{1}{4}$ (We  have $6N(N-1)\frac{1}{2}$ times $sin$-term and $6N(N-1)\frac{1}{2}$ times $cos$-term  what results in $6\times \frac{1}{4} \times N(N-1)$). \\
+
+$ \int_{-\pi}^{\pi}  \frac{1}{2 \pi} sin^2 \theta cos^2 \theta d \theta  = \frac{1}{8}$ (We  have this term $2N$ times  what results in $2\times \frac{1}{8} \times N$). \\
+
+$ \int_{-\pi}^{\pi}  \frac{1}{2 \pi}\int_{-\pi}^{\pi} \frac{1}{2 \pi} cos^2 \theta_i sin^2 \theta_j d\theta_i  d\theta_j = \frac{1}{4}$ (We  have $2N(N-1)\frac{1}{2}$ times  what results in $2\times \frac{1}{4} \times N(N-1)$). \\
+
+All other terms with odd power of sin of cos function are equals zero after integration over period. 
+\begin{equation*}
+\langle m^4 \rangle (J=0) = \frac{1}{N^4} \left( 2\times \frac{3}{8} \times N + 6\times \frac{1}{4} \times N(N-1) + 2\times \frac{1}{8} \times N + 2\times \frac{1}{4} \times N(N-1)
+\right) = \frac{2N-1}{N^3}
+\end{equation*}
+\begin{equation}
+\label{binderqum_0}
+U_4 (J=0) = 1 - \frac{  \frac{2N-1}{N^3} }{3  \frac{1}{N^2} } = 1 - 
+\frac{2N-1}{3N}
+\end{equation}
+ 
+\section{Structural properties} 
+To study structural phase transition, we use the mean square end-to-end distance of self-avoiding-walks which is defined as the sum over all configurations:
+\begin{equation}
+\label{endtoend}
+\langle R_N^2 \rangle  =  \frac{1}{Z_N} \sum_{ |u|=N }  |u|^2 e^{-E_u},
+\end{equation}
+where $|u|$ is the Euclidean distance between the endpoints of conformation $u$, and $Z_N$ is partition function in the canonical assemble \eqref{partitionfunction_free}. As $N \rightarrow \infty $, the mean norm of SAWs is believed to scale as 
+\begin{equation}
+\label{r_scale}
+\langle R_N^2 \rangle \sim N^{2 \nu }.
+\end{equation}
+Here ${\nu} $ is the critical exponent. In two dimensions, the exact value for non-interacting SAWs \cite{Li1995}
+\begin{equation}
+\label{nur}
+\nu = \frac{3}{4}. 
+\end{equation}
+The case of non-interacting SAWs is equivalent to case $J=0$ for XY model on polymers or Ising model on polymers   \cite{PhysRevE.104.054501}.  
+Consider collapsing self-avoiding walks, or classical homopolymer model (see chapter 9 in Ref.\cite{van2015statistical}. For thermodynamic limit $N \rightarrow \infty $, $\nu$ is believed to have the form of a step function of interaction energy $J$. For finite systems, this effect is rounded \cite{vanderzande1998lattice}. At low $J < J_{\theta}$, the system is equivalent to SAW without interaction. At the theta-point, $\nu_{\theta}$  is obtained via Coulomb-gas approximations \cite{Duplantier1987}:
+\begin{equation}
+\label{nu_theta}
+\nu_{\theta} = \frac{4}{7}.
+\end{equation}  
+For the globular regime ($J > J_{\theta}$) in 2D case:
+\begin{equation}
+\label{globular}
+\nu = \frac{1}{2}.
+\end{equation} 
+% $\int_{-\pi}^{\pi}  \frac{1}{2 \pi} sin \theta =\int_{-\pi}^{\pi}  \frac{1}{2 \pi} cos  \theta  = 0 $. 
+%\begin{equation*}
+% \langle m^2 \rangle (J=0) = \frac{1}{N^2} 
+%  2 \pi \prod_{j=2}^{N}  \int_{-\pi}^{\pi} sin^2  \theta_j+ cos^2 \theta_j  d \theta_j^{'} = 2 \pi \left[  \int_{-\pi}^{\pi} sin^2  \theta_j+ cos^2 \theta_j  d \theta_j^{'}  \right]^{N-1} = 2 \times 2^{N-1} \pi ^N  
+%\end{equation*}
+%\begin{equation*}
+%\langle m^4 \rangle (J=0) = \frac{1}{N^4} 
+%2 \pi \prod_{j=2}^{N}  \int_{-\pi}^{\pi} (sin^2  \theta_j+ cos^2 \theta_j)^2 d \theta_j^{'} = 2 \pi \left[  \int_{-\pi}^{\pi} (sin^2  \theta_j+ cos^2 \theta_j )^2 d \theta_j^{'}  \right]^{N-1} = 2 \times 2^{N-1} \pi ^N
+%\end{equation*}
+%\begin{equation*}
+% \langle ( \sum_{i=1}^{N} cos \theta_i )^2  \rangle = 
+%2 \pi \prod_{j=2}^{N}  \int_{-\pi}^{\pi} cos^2 \theta_j d \theta_j^{'} = 2 \pi  \left[ \int_{-\pi}^{\pi} cos^2 \theta_j d \theta_j^{'} \right] ^{N-1} = 2 \pi ^{N}
+%\end{equation*}
+%\begin{equation*}
+%\langle ( \sum_{i=1}^{N} sin \theta_i )^2  \rangle = 
+%2 \pi \prod_{j=2}^{N}  \int_{-\pi}^{\pi} sin^2 \theta_j d \theta_j^{'} = 2 \pi  \left[ \int_{-\pi}^{\pi} sin^2 \theta_j d \theta_j^{'} \right] ^{N-1} = 2 \pi ^{N}
+%\end{equation*}
+%\begin{equation*}
+% \langle m^2 \rangle (J=0) = \frac{1}{N^2} \langle ( \sum_{i=1}^{N} cos \theta_i )^2 +  (\sum_{i=1}^{N} sin \theta_i  )^2 \rangle =  \frac{1}{N^2} 2 \pi ^{N} +  \frac{1}{N^2} 2 \pi ^{N} = \frac{1}{N^2} 4 \pi ^N
+%\end{equation*}
+%\begin{equation*}
+% \langle m^4 \rangle = 2 \pi \prod_{j=2}^{N}  \int_{-\pi}^{\pi} sin^2 \theta_j d \theta_j^{'} 
+%\end{equation*}
+%\begin{equation*}
+% \langle m^4 \rangle = \langle (m^2)^2 \rangle = \left\langle  
+% \left( \frac{1}{N^2}   ( \sum_{i=1}^{N} cos \theta_i )^2 + \frac{1}{N^2}  (\sum_{i=1}^{N} sin \theta_i  )^2 \right)^2 
+% \right\rangle = \frac{4}{N^4} 2^{2N} \pi ^{2N}
+%\end{equation*}
