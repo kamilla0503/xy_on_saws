@@ -45,7 +45,7 @@ public:
     bool IsEndInStuck();
 
     void MC(  double J=0, double h=0, int nSimulation = 0, long int steps_to_equilibrium = 4000000, long int mc_steps = 5000000000000, bool radius = false);
-    //void MC(  double J=0, double h=0, int nSimulation = 0, long int steps_to_equilibrium = 5000, long int mc_steps = 10000000, bool radius = false);
+    //void MC(  double J=0, double h=0, int nSimulation = 0, long int steps_to_equilibrium = 5000, long int mc_steps = 1000000000, bool radius = false);
 
     void save_calcs();
 
@@ -60,6 +60,10 @@ public:
 
     void coord_form();
     void write_file(long int i);
+
+    void save_counts();
+    void write_counts();
+
 public:
 
     Lattice lattice;
@@ -106,8 +110,16 @@ public:
 
     int bulk4_now=0, bulk3_now=0,bulk2_now=0;
 
+    long double xdiff, ydiff;
+    long int r; //сохранение r для записи распределений
+    double h_l = 0.001; //длина  бина
+
     std::map <long int, long long int> count_E;
-    std::map <long int, long long int> count_M;
+    std::map <long int, long long int> count_cos;
+    std::map <long int, long long int> count_m2;
+    std::map <long int, long long int> count_R2;
+    std::map <long int, long long int> count_X;
+    std::map <long int, long long int> count_Y;
 
     long double sum_X=0, sum_Y=0;
     double P_add = 0;
