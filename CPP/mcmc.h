@@ -44,8 +44,8 @@ public:
     void Reconnect1(int j);
     bool IsEndInStuck();
 
-    void MC(  double J=0, double h=0, int nSimulation = 0, long int steps_to_equilibrium = 4000000, long int mc_steps = 5000000000000, bool radius = false);
-    //void MC(  double J=0, double h=0, int nSimulation = 0, long int steps_to_equilibrium = 5000, long int mc_steps = 1000000000, bool radius = false);
+    void MC(  double J=0, double h=0, int nSimulation = 0, long int steps_to_equilibrium = 8100000, long int mc_steps = 5000000000000, bool radius = false);
+    //void MC(  double J=0, double h=0, int nSimulation = 0, long int steps_to_equilibrium = 5000, long int mc_steps = 2000000, bool radius = false);
 
     void save_calcs();
 

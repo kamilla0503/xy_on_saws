@@ -343,7 +343,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
     P_add = 1 - exp(-2*J); //пока так для h=0
 
     double p_for_local_update = 0.8;
-    double p_for_reconnect = 0.98; //p_for_reconnect - p_for_local_update  = вероятность реконнекта
+    double p_for_reconnect = 0.999; //p_for_reconnect - p_for_local_update  = вероятность реконнекта
 
     //spins_in_cluster.resize(number_of_monomers, false);
 
@@ -646,7 +646,7 @@ void Protein::MC( double J_in, double h_in, int Simulation, long int steps_to_eq
         //count_contacts();
 
         if (  i > steps_to_equilibrium &&  i%2000000==0    )
-        //if (  i > steps_to_equilibrium &&  i%10==0    )
+        //if (  i > steps_to_equilibrium &&  i%1000==0    )
         {
             save_calcs();
             calc_bulk();
