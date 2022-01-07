@@ -973,13 +973,13 @@ void Protein::save_counts()
     count_X[xdiff]+=1;
     count_Y[ydiff]+=1;
 
-    int N_cos = abs(sum_cos_1-(-1.))/h_l;
+    int N_cos = (sum_cos_1-(-1.))/h_l;
     count_cos[N_cos]+=1;
 
-    int N_m2 = abs((sum_sin_1*sum_sin_1 + sum_cos_1*sum_cos_1)-(-1.))/h_l;
+    int N_m2 = ((sum_sin_1*sum_sin_1 + sum_cos_1*sum_cos_1)-(-1.))/h_l;
     count_m2[N_m2]+=1;
 
-    int N_E = abs((1.0*(E)/number_of_monomers)-(-2.))/h_l;
+    int N_E = ((1.0*(E)/number_of_monomers)-(-2.))/h_l;
     count_E[N_E]+=1;
 }
 
