@@ -1,0 +1,3 @@
+N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq 
+3600 1.28 0 61090 13804.2 9563.26 2518.71
+-9223372036854775808 11096
