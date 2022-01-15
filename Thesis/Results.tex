@@ -1,9 +1,9 @@
 %%% Results %%%
 \chapter{Results} \label{ch:results}
-To perform MC simulations for short chains from $N=100$ to $N=1000$, we run at least $2.1 \times 10^9$ MC steps using two  types of updates: snake-like and reconnect. For longer chains $N>1000$ we additionally use cluster update. For $N=4900$, we run at least $8 \times 10^10 $ MC steps. 
+To perform MC simulations for short chains from $N=100$ to $N=1000$, we run at least $2.1 \times 10^9$ MC steps using two  types of updates: snake-like and reconnect. For longer chains $N>1000$ we additionally use cluster update. For $N=4900$, we run at least $8 \times 10^{10} $ MC steps. 
 \section{XY model on SAWs, 2D}
 \subsection{Tests for validation simulations}
-To test our Monte-Carlo (M) simulation, we compare results obtained using MC and Sampling + Exact Enumeration. For short chains ($N=5, N=8$), we generate all set of self-avoiding walks and sample spin configurations by uniform distribution $U(-\pi, \pi)$. As this is resource-consuming procedure, we sample spin configurations only $600$ times (so, 600 sequences of spins applied to each conformation) and repeat this $10$ times. Figure \ref{fig:ee} shows obtained results. This method is not reliable, but it helps to make approximate checks. For $J=0$, the second moment of magnetization are close to exact values \eqref{m2j0} and the mean energy starts at $\langle e \rangle = 0$.
+To test our Monte-Carlo (M) simulation, we compare results obtained using MC and Sampling + Exact Enumeration (EE). For short chains ($N=5, N=8$), we generate all set of self-avoiding walks by EE and sample spin configurations by uniform distribution $U(-\pi, \pi)$. As this is resource-consuming procedure, we sample spin configurations only $600$ times (so, 600 sequences of spins applied to each conformation) and repeat this $10$ times. Figure \ref{fig:ee} shows obtained results. This method is not reliable, but it helps to make approximate checks. For $J=0$, the second moment of magnetization are close to exact values \eqref{m2j0} and the mean energy starts at $\langle e \rangle = 0$.
 
  \begin{figure}[H]
 	\centering

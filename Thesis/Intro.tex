@@ -1,3 +1,18 @@
 %%% 1 Introduction/ %%%
 \chapter{Introduction} \label{ch:intro}
-  
+\par A linear polymer, or macromolecule, is a long molecule formed by monomers joined in a sequence by covalent bonds. The structural properties of macromolecule depends on the system state.  In good solvent, there is excluded volume effect and polymer is in denaturated, or unfolded, regime. Globular, or collapsed, phase corresponds to polymer immersed in poor solvent. In the
+critical point, the phase space is divided into two regions corresponding to open and globular states
+of polymer \cite{van2015statistical}.
+
+Coarse-grained models of macromolecules are widely used for macromolecular modeling. In these models, polymers are represented using subunits which are formed by groups of atoms instead of individual atoms (see Chap.1 in Ref.\cite{binder}). Such models neglect chemical details. As coarse-grained models decrease the number of degrees of freedom, it is convenient approach to simulate systems to obtain statistical properties.  
+
+The simplest model of polymer is classical homopolymer model which is represented by interacting (also known as collapsing) self-avoiding walk (SAW). This is well-studied model, including cases for different lattices (see Ref.\cite{van2015statistical, vanderzande1998lattice}). Self-avoiding walks allows to include excluded volume effects for polymers in good solvent. Van der Waals type attraction is modeled via including the nearest neighbor monomer attraction. Critical phenomena take place in the infinite systems in second order phase transition which is defined as a singularity of free-energy function (see Chap.3 in Ref \cite{phasetransition}).
+
+In homopolymer model, all monomers are the same. The polymers with different types of subunits are called heteropolymers. The simplest heteropolymer model is Hydrophobic-polar (HP) model of protein \cite{lau1989lattice}. It assumes that the sequence of monomers types are fixed. This model was introduced to approximate the folding process of protein and mostly used for development algorithms to find minimum energy states (for example, \cite{fress, PhysRevE.68.021113}). This model also was used to explore conformations space of proteins \cite{HELLING2001157}. We studied the case of dynamical HP model where sequence of monomers and geometry structure are not fixed \cite{Faizullina2021}. Computational results do not contradict the assumption that dynamical HP model  and an interacting homopolymer have the similar behavior in phase transition point and they are in the same universality class.
+
+To represent the ferromagnetic properties of material, the Ising model was introduced. The 2D square-lattice Ising model is the simplest example of system which undergoes a phase transition between ordered states. To study  magnetic polymers,  Garel et.al introduced the Ising model on self-avoiding walks \cite{Garel1999} and studied it for 2D and 3D lattices \cite{Garel1999, Papale2018}. After, this model was studied more \cite{PhysRevE.104.024122, PhysRevE.104.054501}. Computational results show that the system has second-order transition in 2D case and first-order transition on 3D lattice. 
+
+%исправить, если добавится еще одна решетка 
+In this work, we continue to study magnetic polymer. We study XY model on SAWs for 2D lattice. Classical XY model on 2D square lattice has a topological order, which was proposed theoretically and named Kosterlitz-Thouless (KT) phase transition \cite{Kosterlitz_1973}. After, classical 2D was studied numerically using Monte-Carlo methods \cite{xy2005, nikolaou2007matter}. 
+ 
+

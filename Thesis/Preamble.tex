@@ -21,7 +21,7 @@
 \addtokomafont{descriptionlabel}{\rmfamily} %Description labels in serifs
 
 %%% Page settings %%%
-\setlength{\parindent}{0pt}
+\setlength{\parindent}{10mm}
 \setlength{\textheight}{240mm}
 \setlength{\footskip}{10mm}
 \setlength{\belowcaptionskip}{0pt}
@@ -75,7 +75,7 @@
 \usepackage{colortbl}	%to enable background color for table cells
 \usepackage{multicol}
 \usepackage{verbatim} %allows command: \comment{}
-
+ 
 
 \usepackage{ragged2e} % add more options for the formatting of tables
 \newcolumntype{Z}{>{\raggedright\arraybackslash}X}
@@ -132,8 +132,10 @@
 
 
 %%% Bibliography settings %%%
-\usepackage[backend=bibtex,style=numeric]{biblatex}
+%\usepackage[round, comma, sort&compress ]{natbib} 
+\usepackage[backend=bibtex,style=numeric,natbib=true,sorting=none]{biblatex}
 %\usepackage[backend=biber, style=ieee, date=long, urldate=long, dateabbrev=false, doi=false, isbn=false, maxcitenames=2, mincitenames=1, maxbibnames=99, url=false, hyperref]{biblatex} % define citation style
+%\bibliographystyle{unsrt}
 \usepackage{url}
 \renewcommand*{\bibfont}{\raggedright} % format reference entries ragged right
 \setlength{\bibitemsep}{0.5\baselineskip}
