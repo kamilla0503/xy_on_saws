@@ -3,7 +3,7 @@
 To perform MC simulations for short chains from $N=100$ to $N=1000$, we run at least $2.1 \times 10^9$ MC steps using two  types of updates: snake-like and reconnect. For longer chains $N>1000$ we additionally use cluster update. For $N=4900$, we run at least $8 \times 10^{10} $ MC steps. 
 \section{XY model on SAWs, 2D}
 \subsection{Tests for validation simulations}
-To test our Monte-Carlo (M) simulation, we compare results obtained using MC and Sampling + Exact Enumeration (EE). For short chains ($N=5, N=8$), we generate all set of self-avoiding walks by EE and sample spin configurations by uniform distribution $U(-\pi, \pi)$. As this is resource-consuming procedure, we sample spin configurations only $600$ times (so, 600 sequences of spins applied to each conformation) and repeat this $10$ times. Figure \ref{fig:ee} shows obtained results. This method is not reliable, but it helps to make approximate checks. For $J=0$, the second moment of magnetization are close to exact values \eqref{m2j0} and the mean energy starts at $\langle e \rangle = 0$.
+To test our Monte-Carlo (M) simulation, we compare results obtained using MC and Sampling + Exact Enumeration (EE). This method is not reliable, but it helps to make approximate checks. For short chains ($N=5, N=8$), we generate all set of self-avoiding walks by EE and sample spin configurations by uniform distribution $U(-\pi, \pi)$. As this is resource-consuming procedure, we sample spin configurations only $600$ times (so, 600 sequences of spins applied to each conformation) and repeat this $10$ times. Figure \ref{fig:ee} shows obtained results.  For $J=0$, the second moment of magnetization are close to exact values \eqref{m2j0} and the mean energy starts at $\langle e \rangle = 0$.
 
  \begin{figure}[H]
 	\centering
@@ -14,8 +14,9 @@ To test our Monte-Carlo (M) simulation, we compare results obtained using MC and
 
 
 \subsection{Thermodynamic properties}
- 
- \begin{figure}[H]
+First, we measure the mean square magnetization \eqref{secondmomentmagnetization} and the mean energy \eqref{hamiltonian} for short chains (up to $N=1000$) in the large range of the interaction energy $J$ and for long chains (up to $N=4900$) in the narrow range where the system are expected to undergo the phase transition.
+
+ \begin{figure}[t]
 	\centering
 	\includegraphics[scale=0.23]{Images/energy_shortchains.png}
 	\includegraphics[scale=0.23]{Images/magnetization2_shortchains.png} \\
@@ -25,9 +26,17 @@ To test our Monte-Carlo (M) simulation, we compare results obtained using MC and
 	\label{fig:energymagshort}
 \end{figure}
 
+ Figure \ref{fig:energymagshort} (left column) shows computational results for the mean energy  \eqref{hamiltonian} as a function of $J$. At the top plot for short chains, the mean energy starts at $\langle e \rangle = 0$ as expected for unfolded disordered SAWs. As $N \rightarrow \infty$, the value of the mean energy decreases and goes to the asymptotic value $\langle e \rangle = -2J$ for compact ordered walk. 
+ 
+  Figure \ref{fig:energymagshort} (right column) illustrates obtained numerical results for the second moment of magnetization \eqref{secondmomentmagnetization}. At $J=0$, results are consisted with the exact solution \eqref{m2j0} and $  \langle m^2 \rangle  \rightarrow 0$ as $N \rightarrow \infty$. As $J$ increases, the square of magnetization grows up. One can suppose an ordering behavior for large J.
+  
+  From both energy and the second magnetization moment, we can clearly see the finite size effect. The longer chains has jumps in the function for lower $J$ in comparison to shorter ones. 
+ 
+ 
 %Figure \ref{fig:energymagshort} illustrates obtained results for Mean energy \eqref{hamiltonian} and   second moment of magnetization \eqref{secondmomentmagnetization}. The system tends to order as interaction energy $J$ gets larger. 
-\section{Structural properties}
-Next, we estimate critical exponent $\nu$. We use following ansatz  \cite{Berretti1985}:
+\subsection{Structural properties}
+
+Next, we estimate critical exponent $\nu$ \eqref{r_scale} from the asymptotic power law for the the mean square end-to-end distance of SAWs. We use following ansatz  \cite{Berretti1985}:
 \begin{equation}
 \label{berettiscale}
 \log (R_N^2+k_1 ) = 2 \nu \log (N+k_2) + b.
@@ -39,25 +48,33 @@ Here $k_1=k_2=1$ are phenomenological parameters.
 	\caption{$h=0$. Estimations with errorbars of critical exponent $\nu$ .   }
 	\label{fig:nushort}
 \end{figure}
-From figure \ref{fig:nushort}, we can assume that XY model on SAWs also has value $\nu = 4/7$ \eqref{nu_theta} at the point os structural phase transition. We use this value to obtain collapsing plots \ref{fig:bcshort}. 
+ 
 
-\section{Scalings}
-Next, we move to estimation of the crossover exponent $\phi$ which
-quantifies the deviation from criticality via the scaled coupling $x = (J-J_c) / N^{-\phi}$ \cite{van2015statistical}. In \cite{PhysRevE.104.024122, PhysRevE.104.054501} it was assumed the value $\phi \approx 0.71$. We use this value to produce scaling plots \ref{fig:radiusscaling}. 
+For the start, we perform curve-fitting for short chains on the large range of values $J$. Figure \ref{fig:nushort} illustrates obtained results of exponent estimation. In $J=0$, the critical exponent $\nu$ equals $\nu = \frac{3}{4}$  which is consisted with the value of non-interacting SAWs \eqref{nur}. The value $\nu=\frac{4}{7}$, which is the exact value
+for interacting SAWs \eqref{nu_theta}, appears at the region $ 1.25 < J < 1.4$. In previous section we showed that the energy and second magnetization moment functions of $J$ have jumps approximately at the same region. 
+
+  We can assume that XY model on SAWs also has value $\nu = 4/7$ \eqref{nu_theta} at the point of structural phase transition. We use this value to obtain collapsing plots in Figure \ref{fig:bcshort} in following subsection \ref{section:Transition}. 
+
+%\section{Scalings}
+%Next, we move to estimation of the crossover exponent $\phi$ which
+%quantifies the deviation from criticality via the scaled coupling $x = (J-J_c) / N^{-\phi}$ \cite{van2015statistical}. In \cite{PhysRevE.104.024122, PhysRevE.104.054501} it was assumed the value $\phi \approx 0.71$. We use this value to produce scaling plots \ref{fig:radiusscaling}. 
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[scale=0.23]{Images/R2_data_collapse_phi.png} 	\includegraphics[scale=0.23]{Images/R2_data_collapse_phi1.png} \\ 
+%	\includegraphics[scale=0.23]{Images/rscalinglong_dc.png}
+%	\includegraphics[scale=0.23]{Images/rscalinglong_dc1.png} 	\\
+%		\includegraphics[scale=0.23]{Images/2dmag2scaling.png} 	\includegraphics[scale=0.23]{Images/2dmag2scaling1.png}  
+%	\caption{$h=0$. Mean radius \eqref{endtoend} and second moment of magnetization \eqref{secondmomentmagnetization} scalings. For left plots we use value $J_{\theta}=1.294$ and for right plots $J_{theta}=1.307$. We assume $\phi=5/7$. }
+%	\label{fig:radiusscaling}
+%\end{figure}
 
 
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.23]{Images/R2_data_collapse_phi.png} 	\includegraphics[scale=0.23]{Images/R2_data_collapse_phi1.png} \\ 
-	\includegraphics[scale=0.23]{Images/rscalinglong_dc.png}
-	\includegraphics[scale=0.23]{Images/rscalinglong_dc1.png} 	\\
-		\includegraphics[scale=0.23]{Images/2dmag2scaling.png} 	\includegraphics[scale=0.23]{Images/2dmag2scaling1.png}  
-	\caption{$h=0$. Mean radius \eqref{endtoend} and second moment of magnetization \eqref{secondmomentmagnetization} scalings. For left plots we use value $J_{\theta}=1.294$ and for right plots $J_{theta}=1.307$. We assume $\phi=5/7$. }
-	\label{fig:radiusscaling}
-\end{figure}
 
-\section{Transition}
+
+
+\subsection{Transition} \label{section:Transition}
+
  \begin{figure}[H]
  	\centering
  	\includegraphics[scale=0.23]{Images/bindercumulants_shortchains.png} 	\includegraphics[scale=0.23]{Images/bindercumulants_longchains.png} \\ 
@@ -69,7 +86,7 @@ quantifies the deviation from criticality via the scaled coupling $x = (J-J_c) /
  \end{figure}
 
 
-\section{Distribution of $\langle cos \theta \rangle$ and e}
+\subsection{Distribution of $\langle cos \theta \rangle$ and $\langle e \rangle$ }
   \begin{figure}[H]
  	\centering
  	\includegraphics[scale=0.25]{Images/distr_cos_1600.png}
@@ -82,3 +99,17 @@ quantifies the deviation from criticality via the scaled coupling $x = (J-J_c) /
  	\caption{$h=0$.  }
  	\label{fig:distributions}
  \end{figure}
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.36]{Images/distr_energy_4900_time.png}
+	\caption{$h=0$.  }
+	\label{fig:distributione4900}
+\end{figure}
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.36]{Images/distr_cos_4900_J.png}
+	\caption{$h=0$.  }
+	\label{fig:distributioncos4900}
+\end{figure}
