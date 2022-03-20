@@ -36,7 +36,7 @@ First, we measure the mean square magnetization \eqref{secondmomentmagnetization
 %Figure \ref{fig:energymagshort} illustrates obtained results for Mean energy \eqref{hamiltonian} and   second moment of magnetization \eqref{secondmomentmagnetization}. The system tends to order as interaction energy $J$ gets larger. 
 \subsection{Structural properties}
 
-Next, we estimate critical exponent $\nu$ \eqref{r_scale} from the asymptotic power law for the the mean square end-to-end distance of SAWs. We use following ansatz  \cite{Berretti1985}:
+Next, we estimate critical exponent $\nu$ \eqref{r_scale} from the asymptotic power law for the mean square end-to-end distance of SAWs. We use following ansatz  \cite{Berretti1985}:
 \begin{equation}
 \label{berettiscale}
 \log (R_N^2+k_1 ) = 2 \nu \log (N+k_2) + b.
@@ -74,6 +74,7 @@ for interacting SAWs \eqref{nu_theta}, appears at the region $ 1.25 < J < 1.4$. 
 
 
 \subsection{Transition} \label{section:Transition}
+To focus on studying phase transition, we calculate two characteristics. The first one is the mean square end-to-end distance scaled using the factor $\nu = \frac{4}{7}$ in \eqref{r_scale}. The second one is Binder cumulant of magnetization \eqref{binderqum}. Figure \ref{fig:bcshort}  presents obtained calculations. 
 
  \begin{figure}[H]
  	\centering
@@ -85,8 +86,36 @@ for interacting SAWs \eqref{nu_theta}, appears at the region $ 1.25 < J < 1.4$. 
  	\label{fig:bcshort}
  \end{figure}
 
+The Binder parameter  could be used to determine the universality class \cite{binder1981finite}.  At phase transition, the Binder ratio  has a divergent feature at the step if the system has the first order transition. Figure \ref{fig:bcshort}  (top) shows that Binder curves diverge for 2D XY model on SAWs. We can see that in the large systems at the transition region the critical value $ U_4  $ is smaller as $N$ larger. Here, we assume that the model undergoes  the first order transition and study it further using distribution in Section \ref{sec:distributions}. The errorbars for curve $N=4900$ are huge, however, we can narrow the region where the phase transition point is located: $J_{cr} \in [1.29; 1.32]$. 
 
-\subsection{Distribution of $\langle cos \theta \rangle$ and $\langle e \rangle$ }
+In the bottom of Figure \ref{fig:bcshort} we can see that scaled curves of mean radius cross approximately at the same point. The right plot also shows us the finite size effect. To make estimation of the critical point, we make following procedure with paired crossings: 
+
+\textbf{Describe later}
+
+ \begin{figure}
+	\centering
+	\includegraphics[scale=0.28]{Images/radius_hist_cov.png}
+	\caption{$h=0$. Histograms of estimated $J_{\theta}$ for paired regressions.  }
+	\label{fig:Jthetahistogram}
+\end{figure}
+
+Histograms for pairs from Figure \ref{fig:Jthetahistogram} shows us how the size of systems affect our estimation. 
+
+\textbf{line}
+
+ \begin{figure}
+	\centering
+	\includegraphics[scale=0.28]{Images/criticalr2.png}
+	\caption{$h=0$. Pairs with $N=2500$.  }
+	\label{fig:JthetaLinear}
+\end{figure}
+
+Estimated value from the zero point: $J_{\theta} \approx 1.2(8)$.
+
+
+
+\subsection{Distribution of $\langle cos \theta \rangle$ and $\langle e \rangle$ } \label{sec:distributions}
+To study the phase transition order, we look to distributions of energy and magnetization. 
   \begin{figure}[H]
  	\centering
  	\includegraphics[scale=0.25]{Images/distr_cos_1600.png}
