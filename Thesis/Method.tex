@@ -1,3 +1,11 @@
 %%% Ch.3: Methodology %%%
 \chapter{Methods} \label{ch:method}
- 
+
+
+
+\section{Monte-Carlo methods}
+
+
+
+
+In this work, we construct Markov Chain Monte Carlo method for fixed-length chain consisting of three types of updates. We refer to them as Snake-like step, Reconnection and Wolff Cluster update. In each iteration, the algorithm chooses the update according to probabilities. We define these probabilities as $P_{local}$,$P_{reconnect}$ and $P_{Wolff}$ respectively. The sum of probabilities is always equal to one: $P_{local} + P_{reconnect} + P_{Wolff} = 1$. 

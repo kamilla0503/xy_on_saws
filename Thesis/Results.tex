@@ -1,7 +1,12 @@
 %%% Results %%%
 \chapter{Results} \label{ch:results}
-To perform MC simulations for short chains from $N=100$ to $N=1000$, we run at least $2.1 \times 10^9$ MC steps using two  types of updates: snake-like and reconnect. For longer chains $N>1000$ we additionally use cluster update. For $N=4900$, we run at least $8 \times 10^{10} $ MC steps. 
+ 
 \section{XY model on SAWs, 2D}
+To perform MC simulations for short chains from $N=100$ to $N=1000$, we run at least $2.1 \times 10^9$ MC steps using two  types of updates: snake-like and reconnect. We choose following update probabilities: $P_{local}=0.8$, $P_{reconnect}=0.2$. 
+
+For longer chains $N>1000$ we additionally use cluster update. For $N=4900$, we run at least $8 \times 10^{10} $ MC steps. Here we use these values for update probabilities: $P_{local}=0.8$, $P_{reconnect}=0.199$, $P_{Wolff}=0.001$.
+
+ 
 \subsection{Tests for validation simulations}
 To test our Monte-Carlo (M) simulation, we compare results obtained using MC and Sampling + Exact Enumeration (EE). This method is not reliable, but it helps to make approximate checks. For short chains ($N=5, N=8$), we generate all set of self-avoiding walks by EE and sample spin configurations by uniform distribution $U(-\pi, \pi)$. As this is resource-consuming procedure, we sample spin configurations only $600$ times (so, 600 sequences of spins applied to each conformation) and repeat this $10$ times. Figure \ref{fig:ee} shows obtained results.  For $J=0$, the second moment of magnetization are close to exact values \eqref{m2j0} and the mean energy starts at $\langle e \rangle = 0$.
 
@@ -106,11 +111,11 @@ Histograms for pairs from Figure \ref{fig:Jthetahistogram} shows us how the size
  \begin{figure}
 	\centering
 	\includegraphics[scale=0.28]{Images/criticalr2.png}
-	\caption{$h=0$. Pairs with $N=2500$.  }
+	\caption{$h=0$. Pairs with $N=4900$.  }
 	\label{fig:JthetaLinear}
 \end{figure}
 
-Estimated value from the zero point: $J_{\theta} \approx 1.2(8)$.
+Estimated value from the zero point: $J_{\theta} \approx 1.3(0)$.
 
 
 
