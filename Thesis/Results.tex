@@ -93,34 +93,54 @@ To focus on studying phase transition, we calculate two characteristics. The fir
 
 The Binder parameter  could be used to determine the universality class \cite{binder1981finite}.  At phase transition, the Binder ratio  has a divergent feature at the step if the system has the first order transition. Figure \ref{fig:bcshort}  (top) shows that Binder curves diverge for 2D XY model on SAWs. We can see that in the large systems at the transition region the critical value $ U_4  $ is smaller as $N$ larger. Here, we assume that the model undergoes  the first order transition and study it further using distribution in Section \ref{sec:distributions}. The errorbars for curve $N=4900$ are huge, however, we can narrow the region where the phase transition point is located: $J_{cr} \in [1.29; 1.32]$. 
 
-In the bottom of Figure \ref{fig:bcshort} we can see that scaled curves of mean radius cross approximately at the same point. The right plot also shows us the finite size effect. To make estimation of the critical point, we make following procedure with paired crossings: 
+In the bottom of Figure \ref{fig:bcshort} we can see that scaled curves of mean radius cross approximately at the same point where long chains have minimum values of Binder cumulant. The right plot also shows us the finite size effect. To make estimation of the critical point, we make following procedure with paired crossings using Monte-Carlo data: 
 
-\textbf{Describe later}
+1. Choose the pair of two different N values for length of the chain. Choose the range of values for interaction energy J. This segment should be as short as possible and include the point of intersection of the two curves. 
+
+2. For each point from the set generate $n_{samples}$ values using Normal distribution with mean and standard error of $\langle R^2 \rangle / N^ {2 \nu}$ as parameters: $ X_{J, N} \sim N (\langle R^2 \rangle / N^ {2 \nu}, \sigma (\langle R^2 \rangle / N^ {2 \nu}))$. We generate for each value $J$ and $N$ 100 samples: $n_{samples} = 100$. 
+
+3. Using generated set, for each pair $J$ and $N$ make estimation for mean and standard deviation $\langle  R^2 / N^ {2 \nu} (J, N)\rangle$.
+
+4. Apply weighted least squares regression to find crossing point. Save the obtained estimation for $\hat{J_{\theta}}$. 
+
+5. Repeat steps 2-5 $n_{lines}$ times. We repeat it $n_{lines}=1000$ times. 
+
+6. At the end, we have $n_{lines}$ of estimated $\hat{J_{\theta}}$ where two curves cross. This set of obtained estimations is histogram in Figure \ref{fig:Jthetahistogram}. 
 
  \begin{figure}
 	\centering
 	\includegraphics[scale=0.28]{Images/radius_hist_cov.png}
-	\caption{$h=0$. Histograms of estimated $J_{\theta}$ for paired regressions.  }
+	\caption{$h=0$. Histograms of estimated $J_{\theta}$ from paired regressions.  }
 	\label{fig:Jthetahistogram}
 \end{figure}
 
-Histograms for pairs from Figure \ref{fig:Jthetahistogram} shows us how the size of systems affect our estimation. 
+Histograms for pairs from Figure \ref{fig:Jthetahistogram} shows us how the size of systems affect the estimations $\hat{J_{\theta}}$. One way to choose the estimation for phase transition point $\hat{J_{\theta}}$ in thermodynamic limit is to focus on pairs for long chains such as $N=3600$ and $N=4900$. Consider the set of results for $N=4900$. We have calculations for four pairs $[N_i, 4900]$ which presented in Figure \ref{fig:Jthetahistogram}. We construct the dependence of estimates $\hat{J_{\theta}}$ on $1/N_i$. Using this measurements, we perform curve-fitting using weighted least squares regression. The fitting results are plotted in Figure \ref{fig:JthetaLinear}. Estimation of criticl point is the point of the limit $1/N_i \rightarrow 0$. We obtain the following results: 
+\begin{equation}
+\label{eq:critical_J_theta_2D}
+J_{\theta}^{3600} \approx 1.3(06); J_{\theta}^{4900} \approx 1.3(04).
+\end{equation}
+%Estimated value from the zero point: $J_{\theta} \approx 1.3(0)$.
 
-\textbf{line}
-
- \begin{figure}
+ \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.28]{Images/criticalr2.png}
-	\caption{$h=0$. Pairs with $N=4900$.  }
+	\includegraphics[scale=0.2]{Images/criticalr2_3600.png}
+	\includegraphics[scale=0.2]{Images/criticalr2.png}
+	\caption{$h=0$. Pairs with $N=3600$ (left) and $N=4900$ (right).  }
 	\label{fig:JthetaLinear}
 \end{figure}
-
-Estimated value from the zero point: $J_{\theta} \approx 1.3(0)$.
+ 
 
 
 
 \subsection{Distribution of $\langle cos \theta \rangle$ and $\langle e \rangle$ } \label{sec:distributions}
-To study the phase transition order, we look to distributions of energy and magnetization. 
+To study the phase transition order, we look to distributions of energy and magnetization.
+
+We start our observation of distributions with quite shore chain $N=1600$. Here (Figure \ref{fig:distributions}, top), we notice that energy distribution shape is getting wider around the critical region $J_{cr} \in [1.29; 1.32]$ which was defined using results from Figure \ref{fig:bcshort}. These curves  do not help enough to determine signs of first order transition. 
+
+Next, we turn our attention to the longer chains $N=2500$ (Figure \ref{fig:distributions}, medium). In this case, we see broad maybe-bimodal shape of energy distribution at the points $J=1.317$ and $J=1.32$.  
+
+Finally, we investigate the Monte-Carlo results for $N=4900$ (Figure \ref{fig:distributions}, bottom). The curve of the energy distribution obtained for simulation in $J=1.307$ is bimodal which corresponds to the first-order phase transition.   
+
   \begin{figure}[H]
  	\centering
  	\includegraphics[scale=0.25]{Images/distr_cos_1600.png}
@@ -134,6 +154,9 @@ To study the phase transition order, we look to distributions of energy and magn
  	\label{fig:distributions}
  \end{figure}
 
+To examine that shape of the energy critical distribution is truly bimodal, we monitor the curve over simulation and fix four phase of the simulation in Figure \ref{fig:distributione4900}. We see that the results at the beginning are quite noisy, however, the data converge to bimodal shape. Here, we can make an estimation $J_{\theta} \approx 1.3(0)$ as we obtain bimodal plot at the point $J=1.307$. 
+
+
  \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.36]{Images/distr_energy_4900_time.png}
@@ -141,9 +164,27 @@ To study the phase transition order, we look to distributions of energy and magn
 	\label{fig:distributione4900}
 \end{figure}
 
+We also observe the distributions of $\langle cos \theta \rangle$ as a magnetic property. We notice that over the critical region the shapes of distributions are far from Normal-like curves and have signs of phase coexistence. \textbf{foster ?}
+
  \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.36]{Images/distr_cos_4900_J.png}
 	\caption{$h=0$.  }
 	\label{fig:distributioncos4900}
 \end{figure}
+
+
+\subsection{Summary for 2D case}
+We study XY model on self-avoiding walks on the square lattice (2D case) using Monte-Carlo simulations. In this work, we consider regime when both conformations and spins are dynamic. Our computational results are consistent with assumption that such model has first-order transition at the critical point. 
+
+
+
+
+
+\section{XY model on SAWs, 3D}
+
+
+\subsection{Thermodynamic properties}
+
+
+
