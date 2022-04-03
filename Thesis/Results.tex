@@ -8,7 +8,9 @@ For longer chains $N>1000$ we additionally use cluster update. For $N=4900$, we 
 
  
 \subsection{Tests for validation simulations}
-To test our Monte-Carlo (M) simulation, we compare results obtained using MC and Sampling + Exact Enumeration (EE). This method is not reliable, but it helps to make approximate checks. For short chains ($N=5, N=8$), we generate all set of self-avoiding walks by EE and sample spin configurations by uniform distribution $U(-\pi, \pi)$. As this is resource-consuming procedure, we sample spin configurations only $600$ times (so, 600 sequences of spins applied to each conformation) and repeat this $10$ times. Figure \ref{fig:ee} shows obtained results.  For $J=0$, the second moment of magnetization are close to exact values \eqref{m2j0} and the mean energy starts at $\langle e \rangle = 0$.
+To test our Monte-Carlo (M) simulation, we compare results obtained using MC and Sampling + Exact Enumeration (EE). The exact numeration is the generation of all self-avoiding walks of the particular low value $N$ using recursion technique. As the space of spin configuration is continuous, we simply sample a lot of vectors which components come from the uniform distribution $U(-\pi, \pi)$. For each generated SAW-conformation we generate the set of spin configurations. This allows to obtain mean values and sum generated sets to the partition function. This method is not reliable, but it helps to make approximate checks. 
+
+We calculate Mean Radius \eqref{endtoend}, mean energy \eqref{hamiltonian} and   second moment of magnetization \eqref{secondmomentmagnetization} for short chains ($N=5, N=8$).  The generation of spin configuration and applied it to the whole set of SAWs is resource-consuming procedure. Therefore, we sample spin configurations only $600$ times (so, 600 sequences of spins applied to each conformation) and repeat this $10$ times. Figure \ref{fig:ee} shows obtained results.  For $J=0$, the second moment of magnetization are close to exact values \eqref{m2j0} and the mean energy starts at $\langle e \rangle = 0$.
 
  \begin{figure}[H]
 	\centering
@@ -40,7 +42,7 @@ First, we measure the mean square magnetization \eqref{secondmomentmagnetization
  
 %Figure \ref{fig:energymagshort} illustrates obtained results for Mean energy \eqref{hamiltonian} and   second moment of magnetization \eqref{secondmomentmagnetization}. The system tends to order as interaction energy $J$ gets larger. 
 \subsection{Structural properties}
-
+\label{structureprocedure}
 Next, we estimate critical exponent $\nu$ \eqref{r_scale} from the asymptotic power law for the mean square end-to-end distance of SAWs. We use following ansatz  \cite{Berretti1985}:
 \begin{equation}
 \label{berettiscale}
@@ -90,6 +92,8 @@ To focus on studying phase transition, we calculate two characteristics. The fir
 
 The Binder parameter  could be used to determine the universality class \cite{binder1981finite}.  At phase transition, the Binder ratio  has a divergent feature at the step if the system has the first order transition. Figure \ref{fig:bcshort}  (top) shows that Binder curves diverge for 2D XY model on SAWs. We can see that in the large systems at the transition region the critical value $ U_4  $ is smaller as $N$ larger. Here, we assume that the model undergoes  the first order transition and study it further using distribution in Section \ref{sec:distributions}. The errorbars for curve $N=4900$ are huge, however, we can narrow the region where the phase transition point is located: $J_{cr} \in [1.29; 1.32]$. 
 
+\subsubsection{ Estimation of $\hat{J_{\theta}}$}
+
 In the bottom of Figure \ref{fig:bcshort} we can see that scaled curves of mean radius cross approximately at the same point where long chains have minimum values of Binder cumulant. The right plot also shows us the finite size effect. To make estimation of the critical point, we make following procedure with paired crossings using Monte-Carlo data: 
 
 1. Choose the pair of two different N values for length of the chain. Choose the range of values for interaction energy J. This segment should be as short as possible and include the point of intersection of the two curves. 
@@ -111,7 +115,7 @@ In the bottom of Figure \ref{fig:bcshort} we can see that scaled curves of mean 
 	\label{fig:Jthetahistogram}
 \end{figure}
 
-Histograms for pairs from Figure \ref{fig:Jthetahistogram} shows us how the size of systems affect the estimations $\hat{J_{\theta}}$. One way to choose the estimation for phase transition point $\hat{J_{\theta}}$ in thermodynamic limit is to focus on pairs for long chains such as $N=3600$ and $N=4900$. Consider the set of results for $N=4900$. We have calculations for four pairs $[N_i, 4900]$ which presented in Figure \ref{fig:Jthetahistogram}. We construct the dependence of estimates $\hat{J_{\theta}}$ on $1/N_i$. Using this measurements, we perform curve-fitting using weighted least squares regression. The fitting results are plotted in Figure \ref{fig:JthetaLinear}. Estimation of criticl point is the point of the limit $1/N_i \rightarrow 0$. We obtain the following results: 
+Histograms for pairs from Figure \ref{fig:Jthetahistogram} shows us how the size of systems affect the estimations $\hat{J_{\theta}}$. One way to choose the estimation for phase transition point $\hat{J_{\theta}}$ in thermodynamic limit is to focus on pairs for long chains such as $N=3600$ and $N=4900$. Consider the set of results for $N=4900$. We have calculations for four pairs $[N_i, 4900]$ which presented in Figure \ref{fig:Jthetahistogram}. We construct the dependence of estimates $\hat{J_{\theta}}$ on $1/N_i$. Using this measurements, we perform curve-fitting using weighted least squares regression. The fitting results are plotted in Figure \ref{fig:JthetaLinear}. Estimation of critical point is the point of the limit $1/N_i \rightarrow 0$. We obtain the following results: 
 \begin{equation}
 \label{eq:critical_J_theta_2D}
 J_{\theta}^{3600} \approx 1.3(06); J_{\theta}^{4900} \approx 1.3(04).
@@ -179,10 +183,17 @@ We study XY model on self-avoiding walks on the square lattice (2D case) using M
 
 
 \section{XY model on SAWs, 3D}
+Here, we we study XY-model on SAWs on the cubic lattice. The sequence of our actions is similar to investigation of 2D case. 
 
+We make short MCMC simulations for short chains from $N=50$ to $N=300$ to narrow the region of critical behavior. MC steps. We use following values for update probabilities: $P_{local}=0.8$, $P_{reconnect}=0.199$, $P_{Wolff}=0.001$. For $N=300$, we run at least $1.6 \times  10^{9} $ algorithm iterations.
+
+For longer chains from $N=400$ to $N=700$ we use these values for update probabilities in the algorithm: $P_{local}=0.5$, $P_{reconnect}=0.4$, $P_{Wolff}=0.1$. We run at least $2\times 10^{10}$ MC steps for $N=700$. 
 
 \subsection{Thermodynamic properties}
 
+ Again, wee measure the mean square magnetization \eqref{secondmomentmagnetization} and the mean energy \eqref{hamiltonian} to superficially investigate the system. 
+ 
+ 
  \begin{figure}[t]
 	\centering
 	\includegraphics[scale=0.23]{Images/3_energy_shortchains.png}
@@ -193,38 +204,78 @@ We study XY model on self-avoiding walks on the square lattice (2D case) using M
 	\label{fig:energymagshort_3D}
 \end{figure}
 
+The squared magnetization (right column in Figure \ref{fig:energymagshort_3D} ) grows up as the interaction energy $J$ increases. This behavior is similar to 2D case. 
+
+The mean energy (left column in Figure \ref{fig:energymagshort_3D} ) tends to get lower for low-temperature regime which could be a sign of compact ordered phase. 
+
+From curves of both properties mean squared magnetization and mean energy, we can assume that the critical point is in the interval $J_{\theta} \in [0.84; 0.92]$.
 
 \subsection{Structural properties}
 
+Here we use the procedure from \ref{structureprocedure} to test the hypothesis that the critical exponent $\nu$ takes the proposed critical value \eqref{eq:nu_3D_Jtheta_flory} at the approximated critical region $J_{\theta} \in [0.84; 0.92]$. 
 
  \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.36]{Images/3_nu_shortchains.png}
+	\includegraphics[scale=0.36]{Images/3_nu_shortchains_deep.png}
 	\caption{$h=0$. Estimations with errorbars of critical exponent $\nu$ .   }
 	\label{fig:nushort3D}
 \end{figure}
 
-
-
-\subsection{Transition}
+Figure \ref{fig:nushort3D} illustrates the obtained results for $\nu$ estimations. In the non-interacting regime, we get $\nu \approx 0.6(1) $ for the short chains from $N=50$ to $N=300$. This results is close to Flory prediction \eqref{eq:nu_3D_J0_flory}. We also see that the possible critical value \eqref{eq:nu_3D_Jtheta_flory} appears approximately at the region $J_{\theta} \in [0.84; 0.92]$. We use $\nu = \frac{1}{2}$ as the critical exponent for the further study. 
 
  \begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.32]{Images/rscaling_longchainscross_3D.png} 
+	\caption{$h=0$. Scaled Mean-squared end-to-end distance using $\nu=1/2$ as a function of $1/N$.   }
+	\label{fig:Rscaled3D}
+\end{figure}
+
+\subsection{Transition}\label{Transition_3D}
+
+To investigate the critical behavior at the phase transition, we again collate the Binder cumulants values \eqref{binderqum} and scaled mean end-to-end distance  \eqref{endtoend}.
+
+
+ \begin{figure}
 	\centering
 	\includegraphics[scale=0.23]{Images/3_bindercumulants_shortchains.png} 	\includegraphics[scale=0.23]{Images/3_bindercumulants_longchains.png} \\ 
 	\includegraphics[scale=0.23]{Images/3_rscaling_shortchains.png}
 	\includegraphics[scale=0.23]{Images/3_rscaling_longchains.png} 	
 	
-	\caption{$h=0$. Binder  cumulants \eqref{binderqum} and mean radius \eqref{endtoend}.  }
+	\caption{$h=0$. Binder  cumulants \eqref{binderqum} and mean radius \eqref{endtoend}. The mean radius is scaled by $\nu \ frac{1}{2}$.  }
 	\label{fig:bcshort_3D}
 \end{figure}
 
+The Binder parameters curves (top Figure \ref{fig:bcshort_3D}) diverges at the critical region similar to XY on SAWs on the square lattice. This is sign of the first-order phase transition. We check the distributions of thermodynamic characteristics in subsection \ref{sec:distributions_3D}. 
+
+The scaled curves of the end-to-end distance cross at the region where Binder cumulants diverge. We can estimate the critical value of the interaction energy $J$ repeating the procedure described in the \ref{section:Transition}. Figure \ref{fig:Jthetahistogram_3D} shows us histograms for paired crosses. 
+
+ \begin{figure}
+	\centering
+	\includegraphics[scale=0.28]{Images/radius_hist_cov_3D.png}
+	\caption{$h=0$. Histograms of estimated $J_{\theta}$ from paired regressions.  }
+	\label{fig:Jthetahistogram_3D}
+\end{figure}
+
+The fitting results are plotted in Figure \ref{fig:JthetaLinear_3D}. Estimation of critical point is the point of the limit $1/N_i \rightarrow 0$. We obtain the following value: 
+\begin{equation}
+\label{eq:critical_J_theta_3D}
+J_{\theta}^{700} \approx    %; J_{\theta}^{4900} \approx 1.3(04).
+\end{equation}
+
+ \begin{figure}
+	\centering 
+	\includegraphics[scale=0.2]{Images/criticalr2_3D.png}
+	\caption{$h=0$. Pairs with $N=700$.  }
+	\label{fig:JthetaLinear_3D}
+\end{figure}
 
 
 \subsection{Distribution of $\langle cos \theta \rangle$ and $\langle e \rangle$ } \label{sec:distributions_3D}
 
+In the subsection \ref{Transition_3D} we assumed that XY model on SAWs has first-order phase transition according to the divergence of the Binder cumulants. Now we look to the distribution of the energy and magnetization component to study it further. 
 
-
-  \begin{figure}[H]
+  \begin{figure}
 	\centering
 	\includegraphics[scale=0.25]{Images/distr_cos_700.png}
 	\includegraphics[scale=0.25]{Images/distr_energy_700.png}
