@@ -2,16 +2,27 @@
 
 \section{XY model on self-avoiding walks (SAWs)} \label{sec:xymodel}
 
-A molecular conformation of the length $N$ is represented by a self-avoiding walk (SAW) on a regular lattice with $N-1$ edges and $N$ nodes.  Each $i$th node represents a spin-like variable $s_i$ which is associated with angle $\theta_i \in  [-\pi;\pi]$. The Hamiltonian for sequence of spins $s$ and conformation $u$ is defined as the sum over all  non-repeating neighbor  pairs $\langle i, j \rangle$ in conformation:
+A molecular conformation of the length $N$ is represented by a self-avoiding walk (SAW) on a regular lattice with $N-1$ edges and $N$ nodes.  Each $i$th node represents a spin-like variable $s_i$ which is associated with angle $\theta_i \in  [-\pi;\pi]$. Figure \ref{fig:example} illustrates the model on the square lattice. 
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.2]{Images/state_example.png}
+	\includegraphics[scale=0.2]{Images/state_example1.png}
+	\caption{ Example states of the  chain $N=200$ obtained using simulation at $J=1.31$ on the square lattice. The color represents angle variable $\theta_i$. }
+	\label{fig:example}
+\end{figure}
+
+
+ The Hamiltonian for sequence of spins $s$ and conformation $u$ is defined as the sum over all  non-repeating neighbor  pairs $\langle i, j \rangle$ in conformation:
 \begin{equation}
 \label{hamiltonian}
 H(u,s) = -J \sum_{ \langle i, j \rangle } cos(\theta_i - \theta_j) - h \sum_i cos(\theta_i)
 \end{equation}
 
-In case of the free boundary conditions, the partition function for the chain of the length $N$ has the following form: 
+Let $U_N$ be a set of all SAW conformations of N monomers. The partition function for the chain of the length $N$ is the sum over all SAW conformations of N monomers and the integral over all spin space:  
 \begin{equation}
-\label{partitionfunction_free}
-Z(J) = \int_{-\pi}^{\pi} d \theta_1 d \theta_2 \dots d\theta_N
+\label{partitionfunction}
+Z(J) =  \sum_{u \in U_N }  \int_{-\pi}^{\pi} d \theta_1 d \theta_2 \dots d\theta_N
  e ^{J(cos\theta_1-\theta_2)} e ^{J(cos\theta_2-\theta_3)} 
  e ^{J(cos\theta_{N-1}-\theta_N)} %= 2 \pi
  %\prod_{j=2}^{N}  \int_{-\pi}^{\pi} d \theta_j^{'} e ^{J(cos\theta_j^{'})} 
@@ -36,6 +47,15 @@ U_4 (J) = 1 - \frac{ \langle m^4 \rangle}{3 \langle m^2 \rangle^2  }
 \end{equation}
 
 \subsection{Case without interaction (J=0)}
+
+Consider the case when no interaction which could be close to 1-dimensional chain. In case of the free boundary conditions, the partition function for the chain of the length $N$ has following form:  
+\begin{equation}
+\label{partitionfunction_free}
+Z(J) =    \int_{-\pi}^{\pi} d \theta_1 d \theta_2 \dots d\theta_N
+e ^{J(cos\theta_1-\theta_2)} e ^{J(cos\theta_2-\theta_3)} 
+e ^{J(cos\theta_{N-1}-\theta_N)} %= 2 \pi
+%\prod_{j=2}^{N}  \int_{-\pi}^{\pi} d \theta_j^{'} e ^{J(cos\theta_j^{'})} 
+\end{equation}
 
 In case $J=0$ (high-temperature regime), all states have equal probabilities:
 \begin{equation}
@@ -119,7 +139,7 @@ For the globular regime ($J > J_{\theta}$) in 2D case:
 
 \subsection{The cubic lattice, 3D}
 
-For 3D case, in $J=0$, the Flory predicted value for self-avoiding walk is following:
+For 3D case, in $J=0$, the Flory predicted value for self-avoiding walk is following \cite{flory1953principles}:
 \begin{equation}
 \label{eq:nu_3D_J0_flory}
  \nu = \frac{3}{2+d} = \frac{3}{5}.
