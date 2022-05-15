@@ -16,7 +16,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 73 2
 81 1
 85 2
-89 3
+89 4
 97 2
 101 2
 109 1
@@ -75,7 +75,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 477 2
 481 7
 485 3
-493 4
+493 5
 505 7
 509 3
 529 1
@@ -110,7 +110,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 745 10
 757 3
 761 5
-765 7
+765 8
 769 3
 773 3
 785 5
@@ -165,11 +165,11 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 1145 6
 1153 3
 1157 4
-1165 8
+1165 9
 1181 4
 1189 8
 1193 4
-1201 4
+1201 5
 1205 6
 1213 3
 1217 2
@@ -218,8 +218,9 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 1537 13
 1549 3
 1553 2
+1557 1
 1565 8
-1573 2
+1573 3
 1585 9
 1597 5
 1601 2
@@ -233,13 +234,13 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 1665 7
 1669 5
 1681 6
-1685 3
+1685 4
 1693 1
 1697 1
 1709 4
 1717 7
 1721 2
-1733 2
+1733 3
 1737 3
 1741 5
 1745 3
@@ -253,7 +254,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 1801 4
 1805 4
 1813 1
-1825 12
+1825 13
 1845 6
 1849 3
 1853 6
@@ -265,7 +266,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 1889 1
 1901 3
 1913 2
-1921 7
+1921 8
 1933 2
 1937 6
 1945 8
@@ -411,10 +412,10 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 3025 8
 3029 6
 3037 2
-3041 4
+3041 5
 3049 4
 3061 4
-3065 6
+3065 7
 3077 11
 3085 4
 3089 2
@@ -424,7 +425,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 3133 10
 3137 2
 3141 1
-3145 8
+3145 9
 3161 5
 3169 4
 3177 2
@@ -445,7 +446,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 3293 9
 3301 2
 3305 7
-3313 3
+3313 4
 3321 3
 3329 3
 3341 12
@@ -454,7 +455,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 3361 6
 3365 8
 3373 2
-3385 5
+3385 6
 3389 3
 3393 5
 3413 4
@@ -492,7 +493,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 3665 4
 3673 1
 3677 3
-3697 6
+3697 7
 3701 3
 3709 3
 3721 8
@@ -595,7 +596,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 4505 15
 4513 3
 4517 7
-4525 12
+4525 14
 4537 9
 4545 2
 4549 3
@@ -616,7 +617,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 4685 5
 4693 2
 4705 8
-4709 7
+4709 8
 4717 2
 4721 1
 4733 2
@@ -626,7 +627,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 4777 4
 4789 4
 4793 3
-4797 8
+4797 9
 4805 3
 4813 5
 4817 4
@@ -647,7 +648,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 4949 2
 4961 5
 4969 4
-4973 2
+4973 3
 4981 7
 4985 11
 4993 4
@@ -689,12 +690,12 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 5297 3
 5305 6
 5309 3
-5317 8
+5317 9
 5321 9
 5329 6
 5333 2
 5337 5
-5341 3
+5341 4
 5345 8
 5353 3
 5365 6
@@ -712,9 +713,9 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 5465 6
 5473 9
 5477 5
-5485 5
+5485 6
 5501 4
-5513 9
+5513 10
 5517 2
 5521 7
 5525 14
@@ -724,7 +725,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 5557 1
 5569 2
 5573 5
-5581 1
+5581 2
 5585 6
 5597 4
 5617 6
@@ -775,7 +776,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 5965 5
 5981 3
 5989 4
-5993 5
+5993 6
 6001 8
 6005 6
 6025 8
@@ -837,7 +838,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 6473 6
 6481 6
 6485 9
-6497 5
+6497 6
 6505 6
 6521 3
 6525 8
@@ -864,7 +865,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 6705 7
 6709 3
 6713 3
-6725 3
+6725 4
 6733 2
 6737 3
 6749 4
@@ -912,7 +913,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 7105 12
 7121 2
 7129 3
-7137 7
+7137 8
 7141 10
 7145 9
 7157 6
@@ -1018,9 +1019,9 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 7949 5
 7957 11
 7969 8
-7985 12
+7985 13
 7993 2
-8005 8
+8005 9
 8009 2
 8017 1
 8021 3
@@ -1035,7 +1036,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 8101 3
 8105 11
 8109 8
-8117 2
+8117 3
 8125 22
 8145 6
 8149 2
@@ -1057,7 +1058,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 8297 2
 8317 4
 8321 3
-8325 3
+8325 5
 8329 3
 8333 4
 8345 6
@@ -1099,7 +1100,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 8641 2
 8649 5
 8653 6
-8665 6
+8665 7
 8669 2
 8677 2
 8681 2
@@ -1155,9 +1156,9 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 9125 6
 9133 3
 9137 2
-9153 6
+9153 7
 9157 1
-9161 1
+9161 2
 9169 5
 9181 3
 9189 3
@@ -1188,7 +1189,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 9397 1
 9409 4
 9413 3
-9421 6
+9421 7
 9425 15
 9433 3
 9437 1
@@ -1200,7 +1201,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 9477 8
 9497 1
 9505 1
-9509 5
+9509 6
 9521 1
 9529 6
 9533 2
@@ -1219,7 +1220,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 9657 6
 9661 6
 9665 3
-9673 7
+9673 8
 9685 7
 9689 4
 9697 6
@@ -1292,7 +1293,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 10289 4
 10305 4
 10309 9
-10313 3
+10313 4
 10321 2
 10333 3
 10337 4
@@ -1313,7 +1314,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 10457 4
 10469 4
 10477 4
-10485 5
+10485 6
 10489 7
 10513 4
 10517 6
@@ -1337,7 +1338,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 10685 8
 10693 7
 10701 6
-10705 8
+10705 9
 10709 6
 10729 2
 10733 2
@@ -1359,13 +1360,13 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 10861 2
 10865 11
 10877 5
-10889 2
-10897 5
+10889 3
+10897 6
 10909 2
 10917 5
 10933 9
 10937 3
-10949 3
+10949 4
 10953 7
 10957 5
 10961 8
@@ -1412,7 +1413,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 11321 2
 11329 4
 11345 4
-11349 5
+11349 6
 11353 3
 11357 2
 11365 3
@@ -1466,6 +1467,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 11789 6
 11801 3
 11809 1
+11813 1
 11817 3
 11821 2
 11833 4
@@ -1490,7 +1492,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 12013 6
 12017 8
 12025 13
-12037 1
+12037 2
 12041 3
 12049 4
 12053 2
@@ -1535,7 +1537,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 12373 4
 12377 1
 12385 10
-12389 5
+12389 6
 12393 4
 12401 4
 12409 1
@@ -1661,14 +1663,14 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 13445 3
 13457 3
 13465 5
-13469 1
-13481 11
+13469 2
+13481 12
 13505 9
 13525 2
 13537 3
 13549 8
 13553 3
-13565 3
+13565 4
 13573 2
 13577 4
 13597 5
@@ -1750,7 +1752,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 14225 3
 14249 3
 14257 8
-14261 2
+14261 3
 14265 4
 14281 3
 14285 2
@@ -1781,7 +1783,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 14501 2
 14517 6
 14521 1
-14533 3
+14533 4
 14537 1
 14545 2
 14549 3
@@ -1804,7 +1806,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 14681 3
 14689 1
 14701 2
-14705 7
+14705 8
 14713 2
 14717 2
 14733 1
@@ -1818,7 +1820,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 14813 3
 14821 1
 14825 7
-14837 3
+14837 4
 14841 5
 14845 1
 14869 4
@@ -1873,11 +1875,11 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 15293 5
 15305 5
 15313 1
-15317 7
+15317 8
 15325 6
-15337 1
+15337 2
 15341 1
-15349 1
+15349 2
 15353 4
 15361 1
 15373 2
@@ -1906,7 +1908,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 15581 2
 15597 2
 15601 1
-15605 5
+15605 6
 15613 7
 15625 8
 15629 2
@@ -1928,7 +1930,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 15777 2
 15793 3
 15797 3
-15805 8
+15805 9
 15817 2
 15821 5
 15845 6
@@ -2012,7 +2014,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 16601 5
 16605 2
 16609 1
-16613 1
+16613 2
 16633 3
 16641 1
 16645 2
@@ -2111,7 +2113,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 17489 1
 17505 1
 17509 1
-17525 6
+17525 8
 17533 3
 17541 1
 17545 4
@@ -2224,12 +2226,12 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 18545 2
 18553 1
 18577 5
-18581 3
+18581 4
 18593 2
 18605 6
 18617 1
 18621 3
-18625 2
+18625 3
 18629 6
 18637 1
 18649 5
@@ -2249,7 +2251,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 18797 1
 18805 2
 18833 1
-18845 2
+18845 3
 18853 5
 18857 3
 18869 1
@@ -2296,6 +2298,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 19277 3
 19289 2
 19301 7
+19309 1
 19321 1
 19325 3
 19345 14
@@ -2344,7 +2347,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 19729 7
 19753 1
 19769 4
-19773 2
+19773 3
 19777 1
 19801 2
 19805 3
@@ -2407,7 +2410,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 20345 6
 20353 1
 20357 1
-20365 3
+20365 4
 20369 3
 20381 3
 20389 2
@@ -2444,7 +2447,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 20689 2
 20705 9
 20717 2
-20725 5
+20725 6
 20737 4
 20745 4
 20749 1
@@ -2463,7 +2466,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 20873 3
 20885 1
 20893 6
-20905 4
+20905 5
 20917 4
 20921 2
 20929 2
@@ -2671,11 +2674,11 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 22973 1
 22985 2
 22993 4
-22997 4
+22997 5
 23021 2
 23029 1
 23049 4
-23053 4
+23053 5
 23057 2
 23081 1
 23101 4
@@ -2821,7 +2824,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 24557 3
 24565 4
 24601 1
-24625 7
+24625 8
 24649 1
 24653 1
 24665 1
@@ -2830,7 +2833,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 24701 3
 24705 3
 24733 1
-24737 6
+24737 7
 24741 2
 24745 3
 24777 1
@@ -2865,7 +2868,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 25117 2
 25121 2
 25129 1
-25133 1
+25133 2
 25169 2
 25173 2
 25177 2
@@ -2884,7 +2887,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 25313 4
 25317 1
 25321 2
-25325 2
+25325 3
 25337 3
 25345 5
 25349 1
@@ -2912,6 +2915,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 25561 3
 25565 2
 25577 1
+25589 1
 25605 3
 25609 1
 25621 3
@@ -2973,7 +2977,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 26261 1
 26269 3
 26293 2
-26297 1
+26297 2
 26305 3
 26317 3
 26325 2
@@ -2986,7 +2990,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 26413 2
 26417 2
 26437 1
-26441 2
+26441 3
 26449 1
 26469 1
 26485 2
@@ -3086,7 +3090,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 27585 4
 27593 1
 27605 2
-27613 2
+27613 3
 27617 1
 27625 12
 27637 4
@@ -3184,7 +3188,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 28697 3
 28705 2
 28741 1
-28745 1
+28745 2
 28753 1
 28757 3
 28769 1
@@ -3200,7 +3204,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 28925 3
 28953 4
 28961 2
-28981 1
+28981 2
 28989 1
 29005 4
 29021 1
@@ -3258,8 +3262,8 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 29609 2
 29637 1
 29641 4
-29645 2
-29653 2
+29645 3
+29653 3
 29665 4
 29669 2
 29705 4
@@ -3343,7 +3347,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 30629 3
 30661 2
 30665 2
-30673 2
+30673 3
 30677 2
 30685 2
 30689 1
@@ -3491,6 +3495,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 32597 1
 32605 2
 32617 1
+32625 1
 32645 2
 32653 1
 32657 6
@@ -3540,7 +3545,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 33489 1
 33505 1
 33517 1
-33521 1
+33521 2
 33541 4
 33553 6
 33565 2
@@ -3820,7 +3825,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 37733 1
 37745 2
 37777 2
-37825 3
+37825 4
 37837 2
 37845 2
 37853 1
@@ -3946,6 +3951,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 40237 1
 40277 1
 40325 2
+40329 1
 40333 1
 40345 1
 40349 2
@@ -3963,6 +3969,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 40725 1
 40729 2
 40745 2
+40757 1
 40781 2
 40805 1
 40833 2
@@ -4027,7 +4034,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 42041 1
 42057 1
 42089 1
-42125 1
+42125 2
 42137 2
 42157 1
 42165 1
@@ -4348,6 +4355,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 53401 1
 53629 1
 53645 1
+53657 1
 53693 1
 53761 1
 53773 2
@@ -4433,6 +4441,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 60289 1
 60525 1
 60961 1
+60985 1
 61045 1
 61297 1
 61321 1
@@ -4497,6 +4506,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 74137 1
 74225 1
 74237 1
+75265 1
 75737 1
 76165 1
 76213 1
@@ -4509,6 +4519,7 @@ N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq
 80469 1
 80665 1
 81925 1
+82633 1
 82849 1
 84025 1
 84877 1
