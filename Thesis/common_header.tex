@@ -1,0 +1,135 @@
+%
+% A COMMON HEADER FOR THE SLIDES
+%
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{accents}
+
+\usepackage{verbatim}
+
+%%% Use a HSE mandated font, Myriad Pro
+\usefonttheme{professionalfonts}
+\usepackage[T1]{fontenc}
+\usepackage{mathspec}
+%\usepackage{sfmath}
+\setmainfont{Myriad Pro}
+\setsansfont{Myriad Pro}
+\setmathfont{Asana Math}
+
+%%% Use a plain page style
+\usetheme{default}
+
+%%% Remove navigation symbols from bottom right
+%%% https://tex.stackexchange.com/questions/686/how-to-get-rid-of-navigation-symbols-in-beamer
+\beamertemplatenavigationsymbolsempty
+
+
+%%% Add an HSE-mandated backgound : presentation, yes; tablet, no.
+%%% https://tex.stackexchange.com/questions/7916/how-to-insert-a-background-image-in-a-beamer-frame
+%\usebackgroundtemplate%
+{%
+%    \includegraphics[width=\paperwidth,height=\paperheight]{images/BACKGROUND.jpg}%
+}
+
+% set the path to the images folder: historically they are in ./images/
+% and \includegraphics{...} uses an explicit images/... folder
+% Now that the TeX sources are in subfolders, we need to append the graphicspath
+\graphicspath{{../}}
+
+
+%%%% Add slide numbers at bottom right
+\setbeamertemplate{sidebar right}{}
+\setbeamertemplate{footline}{%
+\hfill\usebeamertemplate***{navigation symbols}
+\hspace{0.3cm}\insertframenumber{}/\inserttotalframenumber}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\rmd}{\mathrm{d}}
+\newcommand{\rme}{\mathrm{e}}
+\newcommand{\vv}[1]{\mathbf{#1}}
+\newcommand{\op}[1]{\widehat{#1}}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\divr}{div}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Tr}{tr}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\nnull}{null}
+\DeclareMathOperator{\nspan}{span}
+\DeclareMathOperator{\cond}{cond}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\Real}{Re}
+
+
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\bra}[1]{\la{#1}|}
+\newcommand{\ket}[1]{|{#1}\ra}
+\newcommand{\brak}[2]{{\la{#1} \cdot {#2}\ra}}
+
+\newcommand{\vhatx}{\widehat{\vv{x}}}
+\newcommand{\vx}{\vv{x}}
+\newcommand{\vy}{\vv{y}}
+\newcommand{\vb}{\vv{b}}
+\newcommand{\vr}{\vv{r}}
+\newcommand{\ve}{\vv{e}}
+\newcommand{\va}{\vv{a}}
+\newcommand{\vA}{\vv{A}}
+\newcommand{\vB}{\vv{B}}
+\newcommand{\vD}{\vv{D}}
+\newcommand{\vL}{\vv{L}}
+\newcommand{\vU}{\vv{U}}
+\newcommand{\vP}{\vv{P}}
+\newcommand{\vQ}{\vv{Q}}
+\newcommand{\vV}{\vv{V}}
+\newcommand{\vT}{\vv{T}}
+\newcommand{\vu}{\vv{u}}
+\newcommand{\vF}{\vv{F}}
+\newcommand{\vR}{\vv{R}}
+
+\newtheorem*{def*}{Def:}
+\newtheorem*{theorem*}{Theorem:}
+\newtheorem*{question*}{Question:}
+
+%https://tex.stackexchange.com/questions/1874/how-to-make-a-larger-dot
+\newcommand*{\dt}[1]{%
+   \accentset{\mbox{\large\bfseries .}}{#1}}
+\newcommand*{\ddt}[1]{%
+%   \accentset{\mbox{\large\bfseries .\hspace{-0.25ex}.}}{#1}}
+   \accentset{\mbox{\large\bfseries ..}}{#1}}
+
+\newcommand{\Q}{{\Large\textbf{\textcolor{blue}{Q:~}}}}
+\newcommand{\A}{{\Large\textbf{\textcolor{blue}{A:~}}}}
+
+\definecolor{rred}{HTML}{cb4154}
+\newcommand{\rred}[1]{{\color{rred} #1 }}
+
+\newcommand{\red}[1]{{\color{red} #1 }}
+\newcommand{\blue}[1]{{\color{blue} #1 }}
+\newcommand{\green}[1]{{\color{OliveGreen} #1 }}
+
+\newcommand{\rx}{\rred{x}}
+
+
+%%%%%%%%%% for long text under the underbraces
+\newcommand{\underbracewithoutspace}[2]{\mathrlap{\underbrace{\phantom{#1\strut}}_{#2}}#1}
+\newcommand{\undertab}[1]{\rlap{%
+  \begin{tabular}{l@{}}#1\end{tabular}}}
+%%%%%%%%%%%usage:
+%
+%  \underbracewithoutspace{a+b}{\undertab{a long blah blah blah}}+c
+%
+
+\newcommand{\splittwo}[2]{\displaystyle \text{#1} \makebox[0pt][l]{#2} }
+%
+%  \underbracewithoutspace{a+b}{ \splittwo{a long}{blah blah blah} }
+%
+%    this is almost OK, but still leaves a gap above the brace if the 1st arg of \splittwo is too long
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

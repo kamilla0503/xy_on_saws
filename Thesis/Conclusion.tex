@@ -1,4 +1,12 @@
 %%% Ch.6: Conclusion %%%
 \chapter{Conclusion} \label{ch:conclusion}
 
+ In this project, we study XY model on self-avoiding walks on both square and cubic lattices. We consider regime when both conformations and spins are dynamic.
  
+ In order to study critical behavior of the model, we use Markov Chain Monte-Carlo method. We implemented the algorithm consisting of  three types of updates: BEE-reptation move, Reconnection and Wolff cluster. We wrote our program in C++ and used HPC cluster in HSE university. 
+ 
+  In study of 2D case, we made simulations for chains up to $N=4900$. Our  numerical result do not show signs of first-order transition.  We cannot conclude that magnetic phase transition \eqref{eq:critical_J_magnet_2D} and structural transition \eqref{eq:critical_J_theta_2D}  happens simultaneously.  Our MC  data is inconclusive, whether the transitions occur simultaneously or at distinct values of the coupling constant J. More work is needed to conclusively rule out one of possibilities.
+  
+  For 3D case, we simulated short chains (up to $N=700$). Our MC data indicate first-order result. The region of divergence of Binder cumulants and interval consisting of structural phase transition are approximately the same regions. 
+  
+ More work is needed to make more accurate predictions for phase transitions points.
